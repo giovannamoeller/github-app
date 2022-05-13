@@ -9,6 +9,9 @@ import UIKit
 
 class SearchView: UIView {
   
+  private lazy var kStr = StringConstants()
+  private lazy var kNum = NumericConstants()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     backgroundColor = .backgroundColor
@@ -18,9 +21,8 @@ class SearchView: UIView {
   }
   
   private lazy var logoImage: UIImageView = {
-    let imgView = UIImageView(image: UIImage(named: String.logoImage))
+    let imgView = UIImageView(image: UIImage(named: kStr.logoImage))
     imgView.translatesAutoresizingMaskIntoConstraints = false
-    
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
@@ -28,20 +30,22 @@ class SearchView: UIView {
   private lazy var searchTextField: UITextField = {
     let txtField = UITextField()
     txtField.translatesAutoresizingMaskIntoConstraints = false
-    txtField.placeholder = "Enter Username"
+    txtField.placeholder = kStr.getFollowersTextFieldPlaceholder
     txtField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
     txtField.layer.borderWidth = 1.0
     txtField.layer.cornerRadius = 12.0
     txtField.textAlignment = .center
+    txtField.autocapitalizationType = .none
     return txtField
   }()
   
   private lazy var buttonGetFollowers: UIButton = {
     let button = UIButton(type: .custom)
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Get Followers", for: .normal)
+    button.setTitle(kStr.getFollowersButtonText, for: .normal)
     button.backgroundColor = .primaryColor
-    button.layer.cornerRadius = 12.0
+    button.layer.cornerRadius = kNum.buttonCornerRadius
+    button.titleLabel?.font = .boldSystemFont(ofSize: kNum.fontSize)
     return button
   }()
   
