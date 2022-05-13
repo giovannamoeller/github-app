@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIColor {
+  static let backgroundColor = UIColor(named: String.backgroundColor)
+  static let primaryColor = UIColor(named: String.primaryColor)
+}
