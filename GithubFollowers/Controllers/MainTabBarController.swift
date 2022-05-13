@@ -21,8 +21,8 @@ class MainTabBarController: UITabBarController {
   private func configureTabBar() {
     tabBar.tintColor = .black
     viewControllers = [
-      embedInNavigationController(SearchViewController(), title: "Search", icon: kStr.searchIcon, iconHighlighted: nil),
-      embedInNavigationController(SearchViewController(), title: "Favorites", icon: kStr.favoriteIcon, iconHighlighted: kStr.favoriteIconHighlighted),
+      embedInNavigationController(SearchViewController(), title: kStr.searchTabBarText, icon: kStr.searchIcon, iconHighlighted: nil),
+      embedInNavigationController(FavoriteListViewController(), title: kStr.favoritesTabBarText, icon: kStr.favoriteIcon, iconHighlighted: kStr.favoriteIconHighlighted),
     ]
   }
   

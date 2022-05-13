@@ -16,6 +16,9 @@
 		48A56D85282ED47200E59DFA /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D84282ED47200E59DFA /* StringConstants.swift */; };
 		48A56D88282ED4A000E59DFA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D87282ED4A000E59DFA /* UIColor+Extensions.swift */; };
 		48A56D8A282EEF1500E59DFA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D89282EEF1500E59DFA /* MainTabBarController.swift */; };
+		48A56D8C282EFA1B00E59DFA /* NumericConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D8B282EFA1B00E59DFA /* NumericConstants.swift */; };
+		48A56D8E282F109000E59DFA /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D8D282F109000E59DFA /* FavoriteListViewController.swift */; };
+		48A56D90282F109D00E59DFA /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D8F282F109D00E59DFA /* FavoriteListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		48A56D84282ED47200E59DFA /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		48A56D87282ED4A000E59DFA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		48A56D89282EEF1500E59DFA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		48A56D8B282EFA1B00E59DFA /* NumericConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericConstants.swift; sourceTree = "<group>"; };
+		48A56D8D282F109000E59DFA /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		48A56D8F282F109D00E59DFA /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				48A56D81282E1B8900E59DFA /* SearchView.swift */,
+				48A56D8F282F109D00E59DFA /* FavoriteListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 			children = (
 				48A56D6F282E094900E59DFA /* SearchViewController.swift */,
 				48A56D89282EEF1500E59DFA /* MainTabBarController.swift */,
+				48A56D8D282F109000E59DFA /* FavoriteListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				48A56D84282ED47200E59DFA /* StringConstants.swift */,
+				48A56D8B282EFA1B00E59DFA /* NumericConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -179,9 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A56D82282E1B8900E59DFA /* SearchView.swift in Sources */,
+				48A56D8C282EFA1B00E59DFA /* NumericConstants.swift in Sources */,
+				48A56D8E282F109000E59DFA /* FavoriteListViewController.swift in Sources */,
 				48A56D88282ED4A000E59DFA /* UIColor+Extensions.swift in Sources */,
 				48A56D70282E094900E59DFA /* SearchViewController.swift in Sources */,
 				48A56D8A282EEF1500E59DFA /* MainTabBarController.swift in Sources */,
+				48A56D90282F109D00E59DFA /* FavoriteListView.swift in Sources */,
 				48A56D6C282E094900E59DFA /* AppDelegate.swift in Sources */,
 				48A56D85282ED47200E59DFA /* StringConstants.swift in Sources */,
 				48A56D6E282E094900E59DFA /* SceneDelegate.swift in Sources */,

@@ -18,4 +18,6 @@ struct StringConstants {
   // MARK: - Texts
   let getFollowersTextFieldPlaceholder = "Enter Username"
   let getFollowersButtonText = "Get Followers"
+  let searchTabBarText = "Search"
+  let favoritesTabBarText = "Favorites"
 }
