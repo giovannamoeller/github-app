@@ -11,6 +11,7 @@ class SearchView: UIView {
   
   private lazy var kStr = StringConstants()
   private lazy var kNum = NumericConstants()
+  var delegate: SearchViewDelegate?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -19,14 +20,14 @@ class SearchView: UIView {
     setUpConstraints()
   }
   
-  private lazy var logoImage: UIImageView = {
+  lazy var logoImage: UIImageView = {
     let imgView = UIImageView(image: UIImage(named: kStr.logoImage))
     imgView.translatesAutoresizingMaskIntoConstraints = false
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
   
-  private lazy var searchTextField: UITextField = {
+  lazy var searchTextField: UITextField = {
     let txtField = UITextField()
     txtField.translatesAutoresizingMaskIntoConstraints = false
     txtField.placeholder = kStr.getFollowersTextFieldPlaceholder
@@ -35,16 +36,18 @@ class SearchView: UIView {
     txtField.layer.cornerRadius = 12.0
     txtField.textAlignment = .center
     txtField.autocapitalizationType = .none
+    txtField.autocorrectionType = .no
     return txtField
   }()
   
-  private lazy var buttonGetFollowers: UIButton = {
+  lazy var buttonGetFollowers: UIButton = {
     let button = UIButton(type: .custom)
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle(kStr.getFollowersButtonText, for: .normal)
     button.backgroundColor = .primaryColor
     button.layer.cornerRadius = kNum.buttonCornerRadius
     button.titleLabel?.font = .boldSystemFont(ofSize: kNum.fontSize)
+    button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     return button
   }()
   
@@ -56,6 +59,10 @@ class SearchView: UIView {
     addSubview(logoImage)
     addSubview(searchTextField)
     addSubview(buttonGetFollowers)
+  }
+  
+  @objc private func buttonPressed() {
+    delegate?.onButtonTapped()
   }
   
   private func setUpConstraints() {
