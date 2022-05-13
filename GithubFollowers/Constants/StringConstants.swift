@@ -7,15 +7,15 @@
 
 import Foundation
 
-extension String {
+struct StringConstants {
   
   // MARK: - Images
-  static let logoImage = "gh-logo"
-  static let searchIcon = "magnifyingglass"
-  static let favoriteIcon = "heart"
-  static let favoriteIconHighlighted = "heart.fill"
+  let logoImage = "gh-logo"
+  let searchIcon = "magnifyingglass"
+  let favoriteIcon = "heart"
+  let favoriteIconHighlighted = "heart.fill"
   
-  // MARK: - Colors
-  static let backgroundColor = "backgroundColor"
-  static let primaryColor = "primaryColor"
+  // MARK: - Texts
+  let getFollowersTextFieldPlaceholder = "Enter Username"
+  let getFollowersButtonText = "Get Followers"
 }
