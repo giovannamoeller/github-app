@@ -41,12 +41,7 @@ class SearchView: UIView {
   }()
   
   lazy var buttonGetFollowers: UIButton = {
-    let button = UIButton(type: .custom)
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle(kStr.getFollowersButtonText, for: .normal)
-    button.backgroundColor = .primaryColor
-    button.layer.cornerRadius = kNum.buttonCornerRadius
-    button.titleLabel?.font = .boldSystemFont(ofSize: kNum.fontSize)
+    let button = Button(color: .primaryColor, text: kStr.getFollowersButtonText)
     button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     return button
   }()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4865AB4A2832875100091B4B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB492832875100091B4B /* Button.swift */; };
 		48A56D6C282E094900E59DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6B282E094900E59DFA /* AppDelegate.swift */; };
 		48A56D6E282E094900E59DFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6D282E094900E59DFA /* SceneDelegate.swift */; };
 		48A56D70282E094900E59DFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6F282E094900E59DFA /* SearchViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4865AB492832875100091B4B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		48A56D68282E094900E59DFA /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A56D6B282E094900E59DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A56D6D282E094900E59DFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4865AB482832873600091B4B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4865AB492832875100091B4B /* Button.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		48A56D5F282E094900E59DFA = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		48A56D7F282E1B2200E59DFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4865AB482832873600091B4B /* Components */,
 				48A56D81282E1B8900E59DFA /* SearchView.swift */,
 				48A56D8F282F109D00E59DFA /* FavoriteListView.swift */,
 			);
@@ -197,6 +208,7 @@
 				48A56D6C282E094900E59DFA /* AppDelegate.swift in Sources */,
 				48A56D85282ED47200E59DFA /* StringConstants.swift in Sources */,
 				48A56D6E282E094900E59DFA /* SceneDelegate.swift in Sources */,
+				4865AB4A2832875100091B4B /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 extension UIColor {
-  static let backgroundColor = UIColor(named: "backgroundColor")
-  static let greyBackgroundColor = UIColor(named: "greyBackgroundColor")
-  static let primaryColor = UIColor(named: "primaryColor")
-  static let secondaryColor = UIColor(named: "secondaryColor")
-  static let tertiaryColor = UIColor(named: "tertiaryColor")
+  static let backgroundColor = UIColor(named: "backgroundColor")!
+  static let greyBackgroundColor = UIColor(named: "greyBackgroundColor")!
+  static let primaryColor = UIColor(named: "primaryColor")!
+  static let secondaryColor = UIColor(named: "secondaryColor")!
+  static let tertiaryColor = UIColor(named: "tertiaryColor")!
 }
