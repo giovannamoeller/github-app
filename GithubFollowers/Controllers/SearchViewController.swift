@@ -8,13 +8,17 @@
 import UIKit
 
 protocol SearchViewDelegate {
-  func onButtonTapped()
+  func pushFollowersListVC()
   func onDismissKeyboard()
 }
 
 class SearchViewController: UIViewController {
 
   private lazy var searchView = SearchView()
+  
+  private var usernameIsEntered: Bool {
+    return !(searchView.usernameTextField.text?.isEmpty ?? false)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,16 +35,19 @@ class SearchViewController: UIViewController {
     searchView.usernameTextField.delegate = self
     searchView.delegate = self
   }
-
+  
+  private func showAlert() {
+    let alert = AlertViewController(title: "Empty Username", message: "Please enter a username. We need to know who to look for!")
+    self.present(alert, animated: true, completion: nil)
+  }
 }
 
 extension SearchViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
+    pushFollowersListVC()
     return true
   }
-  
-  
 }
 
 extension SearchViewController: SearchViewDelegate {
@@ -48,8 +55,12 @@ extension SearchViewController: SearchViewDelegate {
     searchView.usernameTextField.endEditing(true)
   }
   
-  func onButtonTapped() {
-    guard let username = searchView.usernameTextField.text else { return }
-    print(username)
+  func pushFollowersListVC() {
+    guard usernameIsEntered, let username = searchView.usernameTextField.text else {
+      showAlert()
+      return
+    }
+    let followersListVC = FollowersListViewController(username: username)
+    navigationController?.pushViewController(followersListVC, animated: true)
   }
 }

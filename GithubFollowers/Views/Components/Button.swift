@@ -27,6 +27,7 @@ class Button: UIButton {
     backgroundColor = color
     layer.cornerRadius = kNum.cornerRadius
     titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+    heightAnchor.constraint(equalToConstant: 48.0).isActive = true
   }
   
   required init?(coder: NSCoder) {

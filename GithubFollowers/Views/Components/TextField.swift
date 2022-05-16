@@ -22,7 +22,7 @@ class TextField: UITextField {
   private func configureTextField() {
     translatesAutoresizingMaskIntoConstraints = false
     placeholder = placeholderText
-    layer.borderColor = UIColor.systemGray4.cgColor
+    layer.borderColor = UIColor.systemGray2.cgColor
     layer.borderWidth = kNum.borderWidth
     layer.cornerRadius = kNum.cornerRadius
     textAlignment = .center

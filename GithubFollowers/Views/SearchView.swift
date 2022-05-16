@@ -69,12 +69,11 @@ class SearchView: UIView {
       callToActionButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32.0),
       callToActionButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 64.0),
       callToActionButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -64.0),
-      callToActionButton.heightAnchor.constraint(equalToConstant: 52.0)
     ])
   }
   
   @objc private func buttonPressed() {
-    delegate?.onButtonTapped()
+    delegate?.pushFollowersListVC()
   }
   
   @objc private func dismissKeyboard() {

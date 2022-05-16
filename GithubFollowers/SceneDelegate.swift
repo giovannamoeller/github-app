@@ -16,6 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(windowScene: windowScene)
     window?.rootViewController = UINavigationController(rootViewController: MainTabBarController())
     window?.makeKeyAndVisible()
+    configureNavigationBar()
+  }
+  
+  func configureNavigationBar() {
+    UINavigationBar.appearance().tintColor = .primaryColor // All navigation bars will have this config
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
