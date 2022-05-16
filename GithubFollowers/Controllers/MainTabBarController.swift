@@ -15,18 +15,20 @@ class MainTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureTabBar()
-    // Do any additional setup after loading the view.
+    createNavigationControllers()
+  }
+  
+  private func createNavigationControllers() {
+    let searchVC = createNavigationController(SearchViewController(), title: kStr.searchTabBarText, icon: kStr.searchIcon, iconHighlighted: nil)
+    let favoritesVC = createNavigationController(FavoriteListViewController(), title: kStr.favoritesTabBarText, icon: kStr.favoriteIcon, iconHighlighted: kStr.favoriteIconHighlighted)
+    viewControllers = [searchVC, favoritesVC]
   }
   
   private func configureTabBar() {
-    tabBar.tintColor = .black
-    viewControllers = [
-      embedInNavigationController(SearchViewController(), title: kStr.searchTabBarText, icon: kStr.searchIcon, iconHighlighted: nil),
-      embedInNavigationController(FavoriteListViewController(), title: kStr.favoritesTabBarText, icon: kStr.favoriteIcon, iconHighlighted: kStr.favoriteIconHighlighted),
-    ]
+    UITabBar.appearance().tintColor = .primaryColor
   }
   
-  private func embedInNavigationController(_ vc: UIViewController, title: String, icon: String, iconHighlighted: String?) -> UINavigationController {
+  private func createNavigationController(_ vc: UIViewController, title: String, icon: String, iconHighlighted: String?) -> UINavigationController {
     let navVC = UINavigationController(rootViewController: vc)
     let selectedImageView = iconHighlighted == nil ? UIImage(systemName: icon, withConfiguration: UIImage.SymbolConfiguration(weight: .bold))! : UIImage(systemName: iconHighlighted!)!
     navVC.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: icon), selectedImage: selectedImageView)
