@@ -28,16 +28,7 @@ class SearchView: UIView {
   }()
   
   lazy var searchTextField: UITextField = {
-    let txtField = UITextField()
-    txtField.translatesAutoresizingMaskIntoConstraints = false
-    txtField.placeholder = kStr.getFollowersTextFieldPlaceholder
-    txtField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-    txtField.layer.borderWidth = 1.0
-    txtField.layer.cornerRadius = 12.0
-    txtField.textAlignment = .center
-    txtField.autocapitalizationType = .none
-    txtField.autocorrectionType = .no
-    return txtField
+    return TextField(placeholderText: kStr.getFollowersTextFieldPlaceholder)
   }()
   
   lazy var buttonGetFollowers: UIButton = {

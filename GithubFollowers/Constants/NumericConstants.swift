@@ -11,5 +11,5 @@ struct NumericConstants {
   
   // MARK: - FontSize
   let fontSize = 14.0
-  let buttonCornerRadius = 12.0
+  let cornerRadius = 12.0
 }

@@ -11,6 +11,7 @@ class Button: UIButton {
   
   private var color: UIColor
   private var text: String
+  
   private lazy var kNum = NumericConstants()
   
   init(color: UIColor, text: String) {
@@ -24,7 +25,7 @@ class Button: UIButton {
     translatesAutoresizingMaskIntoConstraints = false
     setTitle(text, for: .normal)
     backgroundColor = color
-    layer.cornerRadius = kNum.buttonCornerRadius
+    layer.cornerRadius = kNum.cornerRadius
     titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
   }
   
