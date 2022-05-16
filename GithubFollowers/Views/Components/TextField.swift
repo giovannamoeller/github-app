@@ -22,12 +22,15 @@ class TextField: UITextField {
   private func configureTextField() {
     translatesAutoresizingMaskIntoConstraints = false
     placeholder = placeholderText
-    layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-    layer.borderWidth = 1.0
+    layer.borderColor = UIColor.systemGray4.cgColor
+    layer.borderWidth = kNum.borderWidth
     layer.cornerRadius = kNum.cornerRadius
     textAlignment = .center
     autocapitalizationType = .none
     autocorrectionType = .no
+    textColor = .label
+    adjustsFontSizeToFitWidth = true
+    minimumFontSize = kNum.minimiumFontSize
   }
   
   required init?(coder: NSCoder) {
