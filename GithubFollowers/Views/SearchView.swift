@@ -11,6 +11,7 @@ class SearchView: UIView {
   
   private lazy var kStr = StringConstants()
   private lazy var kNum = NumericConstants()
+  
   var delegate: SearchViewDelegate?
   
   override init(frame: CGRect) {
@@ -27,14 +28,19 @@ class SearchView: UIView {
     return imgView
   }()
   
-  lazy var searchTextField: UITextField = {
+  lazy var usernameTextField: UITextField = {
     return TextField(placeholderText: kStr.getFollowersTextFieldPlaceholder)
   }()
   
-  lazy var buttonGetFollowers: UIButton = {
+  lazy var callToActionButton: UIButton = {
     let button = Button(color: .primaryColor, text: kStr.getFollowersButtonText)
     button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     return button
+  }()
+  
+  lazy var keyboardTapGesture: UITapGestureRecognizer = {
+    let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    return tap
   }()
   
   private func configureUI() {
@@ -43,12 +49,9 @@ class SearchView: UIView {
   
   private func addSubviews() {
     addSubview(logoImage)
-    addSubview(searchTextField)
-    addSubview(buttonGetFollowers)
-  }
-  
-  @objc private func buttonPressed() {
-    delegate?.onButtonTapped()
+    addSubview(usernameTextField)
+    addSubview(callToActionButton)
+    addGestureRecognizer(keyboardTapGesture)
   }
   
   private func setUpConstraints() {
@@ -58,16 +61,24 @@ class SearchView: UIView {
       logoImage.widthAnchor.constraint(equalToConstant: 198.0),
       logoImage.heightAnchor.constraint(equalToConstant: 198.0),
       
-      searchTextField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 64.0),
-      searchTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 64.0),
-      searchTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -64.0),
-      searchTextField.heightAnchor.constraint(equalToConstant: 52.0),
+      usernameTextField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 64.0),
+      usernameTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 64.0),
+      usernameTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -64.0),
+      usernameTextField.heightAnchor.constraint(equalToConstant: 52.0),
       
-      buttonGetFollowers.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32.0),
-      buttonGetFollowers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 64.0),
-      buttonGetFollowers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -64.0),
-      buttonGetFollowers.heightAnchor.constraint(equalToConstant: 52.0)
+      callToActionButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32.0),
+      callToActionButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 64.0),
+      callToActionButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -64.0),
+      callToActionButton.heightAnchor.constraint(equalToConstant: 52.0)
     ])
+  }
+  
+  @objc private func buttonPressed() {
+    delegate?.onButtonTapped()
+  }
+  
+  @objc private func dismissKeyboard() {
+    delegate?.onDismissKeyboard()
   }
   
   required init?(coder: NSCoder) {

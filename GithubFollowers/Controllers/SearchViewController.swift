@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchViewDelegate {
   func onButtonTapped()
+  func onDismissKeyboard()
 }
 
 class SearchViewController: UIViewController {
@@ -17,12 +18,17 @@ class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     configureUI()
+    navigationController?.isNavigationBarHidden = true
   }
   
   private func configureUI() {
     view = searchView
-    searchView.searchTextField.delegate = self
+    searchView.usernameTextField.delegate = self
     searchView.delegate = self
   }
 
@@ -33,11 +39,17 @@ extension SearchViewController: UITextFieldDelegate {
     textField.resignFirstResponder()
     return true
   }
+  
+  
 }
 
 extension SearchViewController: SearchViewDelegate {
+  func onDismissKeyboard() {
+    searchView.usernameTextField.endEditing(true)
+  }
+  
   func onButtonTapped() {
-    guard let username = searchView.searchTextField.text else { return }
+    guard let username = searchView.usernameTextField.text else { return }
     print(username)
   }
 }
