@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureUI()
-    navigationController?.isNavigationBarHidden = true
+    navigationController?.setNavigationBarHidden(true, animated: true)
   }
   
   private func configureUI() {
