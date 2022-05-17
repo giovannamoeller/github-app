@@ -34,11 +34,11 @@ class SearchViewController: UIViewController {
     view = searchView
     searchView.usernameTextField.delegate = self
     searchView.delegate = self
+    searchView.usernameTextField.text = ""
   }
   
   private func showAlert() {
-    let alert = AlertViewController(title: "Empty Username", message: "Please enter a username. We need to know who to look for!")
-    self.present(alert, animated: true, completion: nil)
+    self.showAlertViewOnMainThread(title: "Enter Username", message: "Please, type an username so we know who to search for.")
   }
 }
 
