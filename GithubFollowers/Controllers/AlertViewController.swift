@@ -11,6 +11,7 @@ class AlertViewController: UIViewController {
   
   var alertTitle: String
   var message: String
+  var buttonTitle: String
   
   private lazy var alertView: UIView = {
     let view = UIView()
@@ -28,6 +29,9 @@ class AlertViewController: UIViewController {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.textColor = .label
     label.font = UIFont.preferredFont(forTextStyle: .headline)
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.9
+    label.lineBreakMode = .byTruncatingTail // dot dot dot after the text
     return label
   }()
   
@@ -39,6 +43,9 @@ class AlertViewController: UIViewController {
     label.font = UIFont.preferredFont(forTextStyle: .callout)
     label.numberOfLines = 0
     label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.75
+    label.lineBreakMode = .byWordWrapping
     return label
   }()
   
@@ -49,20 +56,21 @@ class AlertViewController: UIViewController {
     return button
   }()
   
+  private lazy var tapGesture: UITapGestureRecognizer = {
+    return UITapGestureRecognizer(target: view, action: #selector(dismissAlert))
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureAlert()
     setUpConstraints()
   }
   
-  init(title: String, message: String) {
+  init(title: String, message: String, buttonTitle: String = "Ok") {
     self.alertTitle = title
     self.message = message
+    self.buttonTitle = buttonTitle
     super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   private func setUpConstraints() {
@@ -86,9 +94,8 @@ class AlertViewController: UIViewController {
   }
   
   private func configureAlert() {
-    view.backgroundColor = .black.withAlphaComponent(0.7)
-    modalPresentationStyle = .overFullScreen
-    modalTransitionStyle = .crossDissolve
+    //view.addGestureRecognizer(tapGesture)
+    view.backgroundColor = .black.withAlphaComponent(0.75)
     view.addSubview(alertView)
     alertView.addSubview(alertTitleLabel)
     alertView.addSubview(alertMessageLabel)
@@ -99,5 +106,8 @@ class AlertViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
   
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
 }
