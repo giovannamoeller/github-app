@@ -56,10 +56,6 @@ class AlertViewController: UIViewController {
     return button
   }()
   
-  private lazy var tapGesture: UITapGestureRecognizer = {
-    return UITapGestureRecognizer(target: view, action: #selector(dismissAlert))
-  }()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureAlert()
@@ -78,7 +74,7 @@ class AlertViewController: UIViewController {
       alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64.0),
       alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64.0),
       alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      alertView.heightAnchor.constraint(equalToConstant: 232.0),
+      alertView.heightAnchor.constraint(equalToConstant: 220.0),
       
       alertTitleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 32.0),
       alertTitleLabel.centerXAnchor.constraint(equalTo: alertView.centerXAnchor),
@@ -87,14 +83,13 @@ class AlertViewController: UIViewController {
       alertMessageLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 16.0),
       alertMessageLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -16.0),
       
-      alertButton.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: -32.0),
+      alertButton.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: -16),
       alertButton.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 16.0),
       alertButton.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -16.0),
     ])
   }
   
   private func configureAlert() {
-    //view.addGestureRecognizer(tapGesture)
     view.backgroundColor = .black.withAlphaComponent(0.75)
     view.addSubview(alertView)
     alertView.addSubview(alertTitleLabel)
