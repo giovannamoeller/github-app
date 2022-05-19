@@ -34,16 +34,13 @@ class FollowersListViewController: UIViewController {
   }
   
   private func getFollowers() {
-    GithubManager.shared.getFollowers(for: username, page: 1) { followers, error in
-      
-      guard let followers = followers else {
-        guard let error = error else {
-          return
-        }
+    GithubManager.shared.getFollowers(for: username, page: 1) { response in
+      switch response {
+      case .success(let followers):
+        self.followers = followers
+      case .failure(let error):
         self.showAlertViewOnMainThread(title: "Error", message: error.rawValue)
-        return
       }
-      self.followers = followers
     }
   }
   
