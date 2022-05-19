@@ -7,14 +7,6 @@
 
 import Foundation
 
-enum ResponseError: Error {
-  case invalidRequest(error: String)
-  case dataNotLoaded(error: String)
-  case followersNotFound(error: String)
-  case genericError(error: String)
-  case responseError(error: String)
-}
-
 struct CodableResponse {
   func convertJSONToFollowers(data: Data) -> [Follower] {
     return (try? JSONDecoder().decode([Follower].self, from: data)) ?? []
@@ -37,24 +29,24 @@ class GithubManager {
     let endpoint = "\(basePoint)\(user)/followers?per_page=2&page=\(page)"
     
     guard let url = URL(string: endpoint) else {
-      completionHandler(nil, .invalidRequest(error: "Invalid Request. Please try again."))
+      completionHandler(nil, .invalidRequest)
       return
     }
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
       
       if let _ = error {
-        completionHandler(nil, .genericError(error: "Unable to complete your request. Please check your internet connection."))
+        completionHandler(nil, .unabledToComplete)
         return
       }
       
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-        completionHandler(nil, .responseError(error: "Invalid response from the server. Please try again."))
+        completionHandler(nil, .invalidResponse)
         return
       }
       
       guard let data = data else {
-        completionHandler(nil, .dataNotLoaded(error: "There was an error loading the data."))
+        completionHandler(nil, .invalidData)
         return
       }
       
@@ -64,7 +56,7 @@ class GithubManager {
         let followers = try decoder.decode([Follower].self, from: data)
         completionHandler(followers, nil)
       } catch {
-        completionHandler(nil, .followersNotFound(error: "There was an error loading followers."))
+        completionHandler(nil, .invalidData)
       }
       
     })

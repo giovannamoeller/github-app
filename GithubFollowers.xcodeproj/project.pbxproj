@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480631022836736A0046B75A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480631012836736A0046B75A /* ResponseError.swift */; };
 		4865AB4A2832875100091B4B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB492832875100091B4B /* Button.swift */; };
 		4865AB4C2832B74600091B4B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB4B2832B74600091B4B /* TextField.swift */; };
 		4865AB4E2832C1E400091B4B /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB4D2832C1E400091B4B /* FollowersListViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480631012836736A0046B75A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		4865AB492832875100091B4B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		4865AB4B2832B74600091B4B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4865AB4D2832C1E400091B4B /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480631002836734D0046B75A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				480631012836736A0046B75A /* ResponseError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		4865AB482832873600091B4B /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		48A56D6A282E094900E59DFA /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				480631002836734D0046B75A /* Utilities */,
 				48A56D79282E094D00E59DFA /* Info.plist */,
 				4865AB5F28341FFA00091B4B /* Support */,
 				4865AB562833424800091B4B /* Models */,
@@ -269,6 +280,7 @@
 				4865AB5C28341BEE00091B4B /* UIViewController+Extensions.swift in Sources */,
 				4865AB4C2832B74600091B4B /* TextField.swift in Sources */,
 				4865AB502832C20E00091B4B /* FollowersListView.swift in Sources */,
+				480631022836736A0046B75A /* ResponseError.swift in Sources */,
 				4865AB522832DA2F00091B4B /* AlertViewController.swift in Sources */,
 				48A56D88282ED4A000E59DFA /* UIColor+Extensions.swift in Sources */,
 				48A56D70282E094900E59DFA /* SearchViewController.swift in Sources */,
