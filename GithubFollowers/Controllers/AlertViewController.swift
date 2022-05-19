@@ -79,7 +79,7 @@ class AlertViewController: UIViewController {
       alertTitleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 32.0),
       alertTitleLabel.centerXAnchor.constraint(equalTo: alertView.centerXAnchor),
       
-      alertMessageLabel.topAnchor.constraint(equalTo: alertTitleLabel.bottomAnchor, constant: 32.0),
+      alertMessageLabel.topAnchor.constraint(equalTo: alertTitleLabel.bottomAnchor, constant: 16.0),
       alertMessageLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 16.0),
       alertMessageLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -16.0),
       
