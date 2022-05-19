@@ -16,6 +16,7 @@ class FollowersListViewController: UIViewController {
     }
   }
   var followersListView = FollowersListView()
+  var collectionView: UICollectionView
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,6 +31,7 @@ class FollowersListViewController: UIViewController {
   
   init(username: String) {
     self.username = username
+    self.collectionView = followersListView.collectionView
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -55,8 +57,8 @@ class FollowersListViewController: UIViewController {
   
   private func configureUI() {
     view = followersListView
-    followersListView.collectionView.delegate = self
-    followersListView.collectionView.dataSource = self
+    //collectionView.delegate = self
+    //collectionView.dataSource = self
     title = username
   }
   
@@ -66,17 +68,20 @@ class FollowersListViewController: UIViewController {
   
 }
 
-extension FollowersListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .red
-    return cell
-  }
-}
+//extension FollowersListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//    return 4
+//  }
+//
+//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//    //let cell = FollowerCell()
+//    //print(followers)
+//    //cell.backgroundColor = .green
+//    //cell.set(follower: followers[indexPath.row])
+//    //return cell
+//    return UICollectionViewCell()
+//  }
+//}
 
 extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

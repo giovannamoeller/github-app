@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		480631022836736A0046B75A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480631012836736A0046B75A /* ResponseError.swift */; };
+		4806310428367D570046B75A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4806310328367D570046B75A /* .gitignore */; };
+		4806310628367DBD0046B75A /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806310528367DBD0046B75A /* FollowerCell.swift */; };
 		4865AB4A2832875100091B4B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB492832875100091B4B /* Button.swift */; };
 		4865AB4C2832B74600091B4B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB4B2832B74600091B4B /* TextField.swift */; };
 		4865AB4E2832C1E400091B4B /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB4D2832C1E400091B4B /* FollowersListViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		480631012836736A0046B75A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		4806310328367D570046B75A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4806310528367DBD0046B75A /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		4865AB492832875100091B4B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		4865AB4B2832B74600091B4B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4865AB4D2832C1E400091B4B /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		4865AB5D28341F3A00091B4B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4806310528367DBD0046B75A /* FollowerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 		48A56D5F282E094900E59DFA = {
 			isa = PBXGroup;
 			children = (
+				4806310328367D570046B75A /* .gitignore */,
 				48A56D6A282E094900E59DFA /* GithubFollowers */,
 				48A56D69282E094900E59DFA /* Products */,
 			);
@@ -262,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A56D78282E094D00E59DFA /* LaunchScreen.storyboard in Resources */,
+				4806310428367D570046B75A /* .gitignore in Resources */,
 				48A56D75282E094D00E59DFA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +282,7 @@
 			files = (
 				48A56D82282E1B8900E59DFA /* SearchView.swift in Sources */,
 				48A56D8C282EFA1B00E59DFA /* NumericConstants.swift in Sources */,
+				4806310628367DBD0046B75A /* FollowerCell.swift in Sources */,
 				48A56D8E282F109000E59DFA /* FavoriteListViewController.swift in Sources */,
 				4865AB552833420800091B4B /* GithubManager.swift in Sources */,
 				4865AB5C28341BEE00091B4B /* UIViewController+Extensions.swift in Sources */,

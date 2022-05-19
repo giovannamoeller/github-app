@@ -26,6 +26,7 @@ class MainTabBarController: UITabBarController {
   
   private func configureTabBar() {
     UITabBar.appearance().tintColor = .primaryColor
+    UITabBar.appearance().backgroundColor = .systemGray6
   }
   
   private func createNavigationController(_ vc: UIViewController, title: String, icon: String, iconHighlighted: String?) -> UINavigationController {
