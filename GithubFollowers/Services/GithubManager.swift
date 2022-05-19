@@ -24,29 +24,29 @@ class GithubManager {
   private init() {}
   
     
-  func getFollowers(for user: String, page: Int, completionHandler: @escaping ([Follower]?, ResponseError?) -> (Void)) {
+  func getFollowers(for user: String, page: Int, completionHandler: @escaping (Result<[Follower], ResponseError>) -> (Void)) {
     
     let endpoint = "\(basePoint)\(user)/followers?per_page=2&page=\(page)"
     
     guard let url = URL(string: endpoint) else {
-      completionHandler(nil, .invalidRequest)
+      completionHandler(.failure(.invalidRequest))
       return
     }
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
       
       if let _ = error {
-        completionHandler(nil, .unabledToComplete)
+        completionHandler(.failure(.unabledToComplete))
         return
       }
       
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-        completionHandler(nil, .invalidResponse)
+        completionHandler(.failure(.invalidResponse))
         return
       }
       
       guard let data = data else {
-        completionHandler(nil, .invalidData)
+        completionHandler(.failure(.invalidData))
         return
       }
       
@@ -54,9 +54,9 @@ class GithubManager {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase // snake-case, camelCase
         let followers = try decoder.decode([Follower].self, from: data)
-        completionHandler(followers, nil)
+        completionHandler(.success(followers))
       } catch {
-        completionHandler(nil, .invalidData)
+        completionHandler(.failure(.invalidData))
       }
       
     })
