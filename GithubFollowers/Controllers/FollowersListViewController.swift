@@ -34,7 +34,12 @@ class FollowersListViewController: UIViewController {
   }
   
   private func getFollowers() {
-    NetworkingManager.shared.getFollowers(for: username) { followers in
+    GithubManager.shared.getFollowers(for: username, page: 1) { followers, error in
+      
+      guard let followers = followers else {
+        self.showAlertViewOnMainThread(title: "Error", message: "a")
+        return
+      }
       self.followers = followers
     }
   }
