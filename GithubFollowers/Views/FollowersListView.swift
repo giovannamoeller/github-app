@@ -10,10 +10,9 @@ import UIKit
 class FollowersListView: UIView {
   
   lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.followersFlowLayout)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-    collectionView.backgroundColor = .backgroundColor
+    collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.identifier)
     return collectionView
   }()
   
@@ -34,10 +33,10 @@ class FollowersListView: UIView {
   
   private func setUpConstraints() {
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32.0),
+      collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
       collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0),
-      collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
+      collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
     ])
   }
   

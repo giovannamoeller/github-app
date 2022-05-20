@@ -16,6 +16,7 @@ class FollowersListViewController: UIViewController {
     }
   }
   var followersListView = FollowersListView()
+  var collectionView: UICollectionView
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,11 +31,13 @@ class FollowersListViewController: UIViewController {
   
   init(username: String) {
     self.username = username
+    self.collectionView = followersListView.collectionView
     super.init(nibName: nil, bundle: nil)
   }
   
   private func getFollowers() {
-    GithubManager.shared.getFollowers(for: username, page: 1) { response in
+    GithubManager.shared.getFollowers(for: username, page: 1) { [weak self] response in
+      guard let self = self else { return }
       switch response {
       case .success(let followers):
         self.followers = followers
@@ -45,7 +48,9 @@ class FollowersListViewController: UIViewController {
   }
   
   private func updateFollowers() {
-    print(followers)
+    DispatchQueue.main.async {
+      self.collectionView.reloadData()
+    }
   }
   
   private func configureNavigationBar() {
@@ -55,8 +60,8 @@ class FollowersListViewController: UIViewController {
   
   private func configureUI() {
     view = followersListView
-    followersListView.collectionView.delegate = self
-    followersListView.collectionView.dataSource = self
+    collectionView.delegate = self
+    collectionView.dataSource = self
     title = username
   }
   
@@ -68,26 +73,18 @@ class FollowersListViewController: UIViewController {
 
 extension FollowersListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return followers.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .red
-    return cell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as? FollowerCell
+    cell?.set(follower: followers[indexPath.row])
+    return cell ?? UICollectionViewCell()
   }
 }
 
 extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: (UIScreen.main.bounds.width - 60) / 2, height: 200)
-  }
-  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 32.0
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32)
+    return 16.0
   }
 }

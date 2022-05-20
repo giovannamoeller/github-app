@@ -26,7 +26,7 @@ class GithubManager {
     
   func getFollowers(for user: String, page: Int, completionHandler: @escaping (Result<[Follower], ResponseError>) -> (Void)) {
     
-    let endpoint = "\(basePoint)\(user)/followers?per_page=2&page=\(page)"
+    let endpoint = "\(basePoint)\(user)/followers?per_page=100&page=\(page)"
     
     guard let url = URL(string: endpoint) else {
       completionHandler(.failure(.invalidRequest))
