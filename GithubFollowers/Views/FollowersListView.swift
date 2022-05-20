@@ -10,7 +10,7 @@ import UIKit
 class FollowersListView: UIView {
   
   lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.followersFlowLayout)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = .systemPink
     collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.identifier)
