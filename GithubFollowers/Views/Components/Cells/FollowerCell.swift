@@ -8,6 +8,7 @@
 import UIKit
 
 class FollowerCell: UICollectionViewCell {
+  
   static let identifier = "FollowerCell"
   
   let image: String = ""
@@ -18,24 +19,22 @@ class FollowerCell: UICollectionViewCell {
   }
   
   private lazy var imageView: UIImageView = {
-    let imgView = UIImageView(image: UIImage(systemName: "heart"))
+    let imgView = UIImageView(image: UIImage(named: "default-avatar"))
     imgView.translatesAutoresizingMaskIntoConstraints = false
-    imgView.contentMode = .scaleAspectFit
     imgView.layer.cornerRadius = 16.0
+    imgView.contentMode = .scaleAspectFill
     imgView.clipsToBounds = true
-    
     return imgView
   }()
   
   private lazy var usernameLabel: UILabel = {
     let label = UILabel()
-    label.text = "Username"
+    label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
   private func configureUI() {
-    backgroundColor = .red
   }
   
   private func addSubviews() {
@@ -48,14 +47,14 @@ class FollowerCell: UICollectionViewCell {
     let padding: CGFloat = 8.0
     
     NSLayoutConstraint.activate([
-      imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-      imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-      imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+      imageView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+      imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+      imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
       imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
       
       usernameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: padding),
-      usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-      usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+      usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+      usernameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
       usernameLabel.heightAnchor.constraint(equalToConstant: padding * 3),
     ])
   }

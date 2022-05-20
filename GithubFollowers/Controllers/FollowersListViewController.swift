@@ -48,7 +48,9 @@ class FollowersListViewController: UIViewController {
   }
   
   private func updateFollowers() {
-    print(followers)
+    DispatchQueue.main.async {
+      self.collectionView.reloadData()
+    }
   }
   
   private func configureNavigationBar() {
@@ -71,14 +73,12 @@ class FollowersListViewController: UIViewController {
 
 extension FollowersListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return followers.count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as? FollowerCell
-    print(followers)
-    cell?.backgroundColor = .green
-    //cell.set(follower: followers[indexPath.row])
+    cell?.set(follower: followers[indexPath.row])
     return cell ?? UICollectionViewCell()
   }
 }
