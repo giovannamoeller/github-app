@@ -15,7 +15,12 @@ class FollowerCell: UICollectionViewCell {
   
   func set(follower: Follower) {
     usernameLabel.text = follower.login
-    //imageView.image = UIImage(named: follower.avatarUrl)
+    ImageManager.shared.downloadImage(from: follower.avatarUrl, completionHandler: { [weak self] image in
+      guard let self = self else { return }
+      DispatchQueue.main.async {
+        self.imageView.image = image
+      }
+    })
   }
   
   private lazy var imageView: UIImageView = {
