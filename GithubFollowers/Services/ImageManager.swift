@@ -15,7 +15,7 @@ class ImageManager {
   private init() {}
   
   func downloadImage(from urlString: String, completionHandler: @escaping (UIImage) -> ()) {
-    if let image = checkIfImageIsAlreadyInCache(urlString: urlString) {
+    if let image = checkImageInCache(urlString: urlString) {
       completionHandler(image)
       return
     }
@@ -37,7 +37,7 @@ class ImageManager {
     task.resume()
   }
   
-  func checkIfImageIsAlreadyInCache(urlString: String) -> UIImage? {
+  func checkImageInCache(urlString: String) -> UIImage? {
     let cacheKey = NSString(string: urlString)
     guard let image = cache.object(forKey: cacheKey) else { return nil }
     return image
