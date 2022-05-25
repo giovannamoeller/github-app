@@ -21,6 +21,9 @@
 		4865AB612834248E00091B4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865AB602834248E00091B4B /* User.swift */; };
 		487510232838075E0076FB1F /* UICollectionViewFlowLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487510222838075E0076FB1F /* UICollectionViewFlowLayout+Extensions.swift */; };
 		487510252838312C0076FB1F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487510242838312C0076FB1F /* ImageManager.swift */; };
+		4896D4FB283C6B6A00FAE676 /* GHFollowerDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896D4FA283C6B6A00FAE676 /* GHFollowerDetailsCoordinator.swift */; };
+		4896D4FD283C6C0100FAE676 /* FollowerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896D4FC283C6C0100FAE676 /* FollowerDetailsViewController.swift */; };
+		4896D4FF283C6FF200FAE676 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896D4FE283C6FF200FAE676 /* CoordinatorProtocol.swift */; };
 		48A56D6C282E094900E59DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6B282E094900E59DFA /* AppDelegate.swift */; };
 		48A56D6E282E094900E59DFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6D282E094900E59DFA /* SceneDelegate.swift */; };
 		48A56D70282E094900E59DFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A56D6F282E094900E59DFA /* SearchViewController.swift */; };
@@ -50,6 +53,9 @@
 		4865AB602834248E00091B4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		487510222838075E0076FB1F /* UICollectionViewFlowLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+Extensions.swift"; sourceTree = "<group>"; };
 		487510242838312C0076FB1F /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		4896D4FA283C6B6A00FAE676 /* GHFollowerDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowerDetailsCoordinator.swift; sourceTree = "<group>"; };
+		4896D4FC283C6C0100FAE676 /* FollowerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDetailsViewController.swift; sourceTree = "<group>"; };
+		4896D4FE283C6FF200FAE676 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		48A56D68282E094900E59DFA /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A56D6B282E094900E59DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A56D6D282E094900E59DFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		4896D4F9283C6B5200FAE676 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4896D4FA283C6B6A00FAE676 /* GHFollowerDetailsCoordinator.swift */,
+				4896D4FE283C6FF200FAE676 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		48A56D5F282E094900E59DFA = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +175,7 @@
 		48A56D6A282E094900E59DFA /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				4896D4F9283C6B5200FAE676 /* Coordinator */,
 				480631002836734D0046B75A /* Utilities */,
 				48A56D79282E094D00E59DFA /* Info.plist */,
 				4865AB5F28341FFA00091B4B /* Support */,
@@ -192,6 +208,7 @@
 				48A56D8D282F109000E59DFA /* FavoriteListViewController.swift */,
 				4865AB4D2832C1E400091B4B /* FollowersListViewController.swift */,
 				4865AB512832DA2F00091B4B /* AlertViewController.swift */,
+				4896D4FC283C6C0100FAE676 /* FollowerDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -286,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4896D4FB283C6B6A00FAE676 /* GHFollowerDetailsCoordinator.swift in Sources */,
 				487510232838075E0076FB1F /* UICollectionViewFlowLayout+Extensions.swift in Sources */,
 				48A56D82282E1B8900E59DFA /* SearchView.swift in Sources */,
 				48A56D8C282EFA1B00E59DFA /* NumericConstants.swift in Sources */,
@@ -297,6 +315,7 @@
 				487510252838312C0076FB1F /* ImageManager.swift in Sources */,
 				4865AB502832C20E00091B4B /* FollowersListView.swift in Sources */,
 				480631022836736A0046B75A /* ResponseError.swift in Sources */,
+				4896D4FD283C6C0100FAE676 /* FollowerDetailsViewController.swift in Sources */,
 				4865AB522832DA2F00091B4B /* AlertViewController.swift in Sources */,
 				48A56D88282ED4A000E59DFA /* UIColor+Extensions.swift in Sources */,
 				48A56D70282E094900E59DFA /* SearchViewController.swift in Sources */,
@@ -304,6 +323,7 @@
 				48A56D8A282EEF1500E59DFA /* MainTabBarController.swift in Sources */,
 				48A56D90282F109D00E59DFA /* FavoriteListView.swift in Sources */,
 				48A56D6C282E094900E59DFA /* AppDelegate.swift in Sources */,
+				4896D4FF283C6FF200FAE676 /* CoordinatorProtocol.swift in Sources */,
 				48A56D85282ED47200E59DFA /* StringConstants.swift in Sources */,
 				48A56D6E282E094900E59DFA /* SceneDelegate.swift in Sources */,
 				4865AB4E2832C1E400091B4B /* FollowersListViewController.swift in Sources */,
