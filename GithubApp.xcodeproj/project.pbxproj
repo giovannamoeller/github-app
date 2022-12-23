@@ -12,6 +12,7 @@
 		4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A7295519BF00D40672 /* SearchViewController.swift */; };
 		4806E8AD295519C100D40672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4806E8AC295519C100D40672 /* Assets.xcassets */; };
 		4806E8B0295519C100D40672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4806E8AE295519C100D40672 /* LaunchScreen.storyboard */; };
+		4806E8B929562AD900D40672 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8B829562AD900D40672 /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4806E8AC295519C100D40672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4806E8AF295519C100D40672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4806E8B1295519C100D40672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4806E8B829562AD900D40672 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		4806E8A2295519BF00D40672 /* GithubApp */ = {
 			isa = PBXGroup;
 			children = (
+				4806E8B729562AB800D40672 /* Views */,
 				4806E8A3295519BF00D40672 /* AppDelegate.swift */,
 				4806E8A5295519BF00D40672 /* SceneDelegate.swift */,
 				4806E8A7295519BF00D40672 /* SearchViewController.swift */,
@@ -62,6 +65,14 @@
 				4806E8B1295519C100D40672 /* Info.plist */,
 			);
 			path = GithubApp;
+			sourceTree = "<group>";
+		};
+		4806E8B729562AB800D40672 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4806E8B829562AD900D40672 /* GFTextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			files = (
 				4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */,
 				4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */,
+				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
 				4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
