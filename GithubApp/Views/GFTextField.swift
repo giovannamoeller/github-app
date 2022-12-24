@@ -22,7 +22,9 @@ class GFTextField: UITextField {
     private func setLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         borderStyle = .roundedRect
-        
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 52.0)
+        ])
     }
 
 }

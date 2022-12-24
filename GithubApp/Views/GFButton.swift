@@ -9,12 +9,27 @@ import UIKit
 
 class GFButton: UIButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    init(_ title: String) {
+        super.init(frame: .zero)
+        setTitle(title, for: .normal)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        setLayout()
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setLayout() {
+        layer.cornerRadius = 12.0
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 52.0)
+        ])
+    }
+    
+    func setBackgroundColor(to color: UIColor) {
+        backgroundColor = color
+    }
 
 }

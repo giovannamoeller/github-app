@@ -17,6 +17,8 @@ class SearchViewController: UIViewController {
     
     private lazy var textField = GFTextField("Enter Username")
     
+    private lazy var button = GFButton("Get Followers")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
@@ -28,6 +30,8 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(logoImageView)
         view.addSubview(textField)
+        view.addSubview(button)
+        button.setBackgroundColor(to: .mainColor)
     }
     
     private func setConstraints() {
@@ -40,7 +44,11 @@ class SearchViewController: UIViewController {
             textField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 96.0),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
-            textField.heightAnchor.constraint(equalToConstant: 64.0)
+            
+            button.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 64.0),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
+            
         ])
     }
 
