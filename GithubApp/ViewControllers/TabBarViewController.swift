@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarViews()
-        setUpTabBarAppearance()
+        setUpTabBarAndNavigationAppearance()
         // Do any additional setup after loading the view.
     }
     
@@ -24,8 +24,9 @@ class TabBarViewController: UITabBarController {
         viewControllers = [searchVC, favoritesVC]
     }
     
-    private func setUpTabBarAppearance() {
+    private func setUpTabBarAndNavigationAppearance() {
         UITabBar.appearance().tintColor = .mainColor
+        UINavigationBar.appearance().tintColor = .mainColor
     }
     
     private func setUpView(_ viewController: UIViewController, _ title: String, _ tabBarSystemItem: UITabBarItem.SystemItem) -> UINavigationController {
