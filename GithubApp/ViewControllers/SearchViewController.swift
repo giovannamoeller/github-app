@@ -26,6 +26,11 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     private func setLayout() {
         view.backgroundColor = .white
         view.addSubview(logoImageView)
@@ -35,7 +40,7 @@ class SearchViewController: UIViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 128),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 128),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 190.0),
             logoImageView.heightAnchor.constraint(equalToConstant: 190.0),
