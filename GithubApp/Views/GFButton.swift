@@ -12,7 +12,6 @@ class GFButton: UIButton {
     init(_ title: String) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         setLayout()
     }
     
@@ -21,6 +20,7 @@ class GFButton: UIButton {
     }
     
     private func setLayout() {
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         layer.cornerRadius = 12.0
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
