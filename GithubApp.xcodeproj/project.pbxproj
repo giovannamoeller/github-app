@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4801867B295FD45E00D58251 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801867A295FD45E00D58251 /* FavoritesViewController.swift */; };
+		4801867D295FD48D00D58251 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801867C295FD48D00D58251 /* TabBarViewController.swift */; };
 		4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A3295519BF00D40672 /* AppDelegate.swift */; };
 		4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A5295519BF00D40672 /* SceneDelegate.swift */; };
 		4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A7295519BF00D40672 /* SearchViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4801867A295FD45E00D58251 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4801867C295FD48D00D58251 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4806E8A0295519BF00D40672 /* GithubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4806E8A3295519BF00D40672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4806E8A5295519BF00D40672 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48018679295FD43600D58251 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4806E8A7295519BF00D40672 /* SearchViewController.swift */,
+				4801867A295FD45E00D58251 /* FavoritesViewController.swift */,
+				4801867C295FD48D00D58251 /* TabBarViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4806E897295519BF00D40672 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +74,11 @@
 		4806E8A2295519BF00D40672 /* GithubApp */ = {
 			isa = PBXGroup;
 			children = (
+				48018679295FD43600D58251 /* ViewControllers */,
 				486C45E2295682C0002CD646 /* Extensions */,
 				4806E8B729562AB800D40672 /* Views */,
 				4806E8A3295519BF00D40672 /* AppDelegate.swift */,
 				4806E8A5295519BF00D40672 /* SceneDelegate.swift */,
-				4806E8A7295519BF00D40672 /* SearchViewController.swift */,
 				4806E8AC295519C100D40672 /* Assets.xcassets */,
 				4806E8AE295519C100D40672 /* LaunchScreen.storyboard */,
 				4806E8B1295519C100D40672 /* Info.plist */,
@@ -159,8 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4801867D295FD48D00D58251 /* TabBarViewController.swift in Sources */,
 				4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */,
 				486C45E1295679AD002CD646 /* GFButton.swift in Sources */,
+				4801867B295FD45E00D58251 /* FavoritesViewController.swift in Sources */,
 				4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */,
 				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
 				4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */,

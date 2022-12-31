@@ -8,22 +8,28 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpTabBarViews()
+        setUpTabBarAppearance()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpTabBarViews() {
+        let searchVC = setUpView(SearchViewController(), "Search", "magnifyingglass", "magnifyingglass")
+        let favoritesVC = setUpView(FavoritesViewController(), "Favorites", "star", "star.fill")
+        viewControllers = [searchVC, favoritesVC]
     }
-    */
-
+    
+    private func setUpTabBarAppearance() {
+        UITabBar.appearance().tintColor = .mainColor
+    }
+    
+    private func setUpView(_ viewController: UIViewController, _ title: String, _ iconName: String, _ iconSelectedName: String) -> UINavigationController {
+        let navVC = UINavigationController(rootViewController: viewController)
+        navVC.title = title
+        navVC.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: iconName), selectedImage: UIImage(systemName: iconSelectedName))
+        return navVC
+    }
 }
