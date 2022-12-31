@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
+    private var tag: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarViews()
@@ -17,8 +19,8 @@ class TabBarViewController: UITabBarController {
     }
     
     private func setUpTabBarViews() {
-        let searchVC = setUpView(SearchViewController(), "Search", "magnifyingglass", "magnifyingglass")
-        let favoritesVC = setUpView(FavoritesViewController(), "Favorites", "star", "star.fill")
+        let searchVC = setUpView(SearchViewController(), "Search", .search)
+        let favoritesVC = setUpView(FavoritesViewController(), "Favorites", .favorites)
         viewControllers = [searchVC, favoritesVC]
     }
     
@@ -26,10 +28,11 @@ class TabBarViewController: UITabBarController {
         UITabBar.appearance().tintColor = .mainColor
     }
     
-    private func setUpView(_ viewController: UIViewController, _ title: String, _ iconName: String, _ iconSelectedName: String) -> UINavigationController {
+    private func setUpView(_ viewController: UIViewController, _ title: String, _ tabBarSystemItem: UITabBarItem.SystemItem) -> UINavigationController {
         let navVC = UINavigationController(rootViewController: viewController)
         navVC.title = title
-        navVC.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: iconName), selectedImage: UIImage(systemName: iconSelectedName))
+        navVC.tabBarItem = UITabBarItem(tabBarSystemItem: tabBarSystemItem, tag: tag)
+        tag += 1
         return navVC
     }
 }
