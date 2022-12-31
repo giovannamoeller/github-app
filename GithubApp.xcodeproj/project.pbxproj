@@ -16,7 +16,7 @@
 		4806E8B0295519C100D40672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4806E8AE295519C100D40672 /* LaunchScreen.storyboard */; };
 		4806E8B929562AD900D40672 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8B829562AD900D40672 /* GFTextField.swift */; };
 		486C45E1295679AD002CD646 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C45E0295679AD002CD646 /* GFButton.swift */; };
-		486C45E4295682CC002CD646 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C45E3295682CC002CD646 /* UIColor+.swift */; };
+		486C45E4295682CC002CD646 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C45E3295682CC002CD646 /* Color+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		4806E8B1295519C100D40672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4806E8B829562AD900D40672 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		486C45E0295679AD002CD646 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
-		486C45E3295682CC002CD646 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		486C45E3295682CC002CD646 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		486C45E2295682C0002CD646 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				486C45E3295682CC002CD646 /* UIColor+.swift */,
+				486C45E3295682CC002CD646 /* Color+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 				4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */,
 				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
 				4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */,
-				486C45E4295682CC002CD646 /* UIColor+.swift in Sources */,
+				486C45E4295682CC002CD646 /* Color+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
