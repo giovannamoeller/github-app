@@ -9,9 +9,10 @@ import UIKit
 
 class GFButton: UIButton {
 
-    init(_ title: String) {
+    init(_ title: String, _ backgroundColor: UIColor) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
+        self.backgroundColor = backgroundColor
         setLayout()
     }
     
@@ -26,10 +27,6 @@ class GFButton: UIButton {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 52.0)
         ])
-    }
-    
-    func setBackgroundColor(to color: UIColor) {
-        backgroundColor = color
     }
 
 }

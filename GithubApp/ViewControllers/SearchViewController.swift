@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     
     private lazy var textField = GFTextField("Enter Username")
     
-    private lazy var button = GFButton("Get Followers")
+    private lazy var button = GFButton("Get Followers", .mainColor)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class SearchViewController: UIViewController {
         view.addSubview(logoImageView)
         view.addSubview(textField)
         view.addSubview(button)
-        button.setBackgroundColor(to: .mainColor)
     }
     
     private func setConstraints() {
