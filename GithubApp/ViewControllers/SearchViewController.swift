@@ -15,6 +15,11 @@ class SearchViewController: UIViewController {
         return imageView
     }()
     
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        return tap
+    }()
+    
     private lazy var textField = GFTextField("Enter Username")
     
     private lazy var button = GFButton("Get Followers", .mainColor)
@@ -33,6 +38,7 @@ class SearchViewController: UIViewController {
     
     private func setLayout() {
         view.backgroundColor = .white
+        view.addGestureRecognizer(tapGesture)
         view.addSubview(logoImageView)
         view.addSubview(textField)
         view.addSubview(button)
