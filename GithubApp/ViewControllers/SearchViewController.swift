@@ -9,6 +9,10 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    var isUsernameEntered: Bool {
+        return !(textField.text?.isEmpty ?? true)
+    }
+    
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "gh-logo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +74,10 @@ class SearchViewController: UIViewController {
     }
     
     @objc private func goToFollowersVC() {
+        guard isUsernameEntered else {
+            displayAlert(title: "Empty Username", message: "Please enter an username", buttonText: "Ok")
+            return
+        }
         let username = textField.text ?? String()
         let followersVC = FollowersViewController(username: username)
         navigationController?.pushViewController(followersVC, animated: true)
