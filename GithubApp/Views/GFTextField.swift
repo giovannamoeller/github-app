@@ -33,6 +33,8 @@ class GFTextField: UITextField {
         textColor = .label
         tintColor = .label
         autocorrectionType = .no
+        returnKeyType = .go
+        autocapitalizationType = .none
     }
     
     private func setConstraints() {

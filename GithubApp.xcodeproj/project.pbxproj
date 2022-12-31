@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4801867B295FD45E00D58251 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801867A295FD45E00D58251 /* FavoritesViewController.swift */; };
 		4801867D295FD48D00D58251 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801867C295FD48D00D58251 /* TabBarViewController.swift */; };
+		4801867F2960E96D00D58251 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801867E2960E96D00D58251 /* FollowersViewController.swift */; };
 		4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A3295519BF00D40672 /* AppDelegate.swift */; };
 		4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A5295519BF00D40672 /* SceneDelegate.swift */; };
 		4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4806E8A7295519BF00D40672 /* SearchViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		4801867A295FD45E00D58251 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4801867C295FD48D00D58251 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4801867E2960E96D00D58251 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		4806E8A0295519BF00D40672 /* GithubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4806E8A3295519BF00D40672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4806E8A5295519BF00D40672 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 				4806E8A7295519BF00D40672 /* SearchViewController.swift */,
 				4801867A295FD45E00D58251 /* FavoritesViewController.swift */,
 				4801867C295FD48D00D58251 /* TabBarViewController.swift */,
+				4801867E2960E96D00D58251 /* FollowersViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4801867F2960E96D00D58251 /* FollowersViewController.swift in Sources */,
 				4801867D295FD48D00D58251 /* TabBarViewController.swift in Sources */,
 				4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */,
 				486C45E1295679AD002CD646 /* GFButton.swift in Sources */,

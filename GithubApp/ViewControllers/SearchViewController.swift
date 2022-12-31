@@ -16,13 +16,20 @@ class SearchViewController: UIViewController {
     }()
     
     private lazy var tapGesture: UITapGestureRecognizer = {
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
-        return tap
+        return UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
     }()
     
-    private lazy var textField = GFTextField("Enter Username")
+    private lazy var textField: GFTextField = {
+        let textField = GFTextField("Enter username")
+        textField.delegate = self
+        return textField
+    }()
     
-    private lazy var button = GFButton("Get Followers", .mainColor)
+    private lazy var button: GFButton = {
+        let button = GFButton("Get Followers", .mainColor)
+        button.addTarget(self, action: #selector(goToFollowersVC), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +68,18 @@ class SearchViewController: UIViewController {
             
         ])
     }
+    
+    @objc private func goToFollowersVC() {
+        let username = textField.text ?? String()
+        let followersVC = FollowersViewController(username: username)
+        navigationController?.pushViewController(followersVC, animated: true)
+    }
+}
 
-
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        goToFollowersVC()
+        return true
+    }
 }
 
