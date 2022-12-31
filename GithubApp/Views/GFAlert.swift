@@ -17,9 +17,9 @@ class GFAlert: UIViewController {
         let container = UIView()
         container.layer.cornerRadius = 16.0
         container.layer.borderWidth = 2.0
-        container.layer.borderColor = UIColor.red.cgColor
+        container.layer.borderColor = UIColor.systemGray.cgColor
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = .systemGreen
+        container.backgroundColor = .white
         return container
     }()
     
@@ -27,7 +27,8 @@ class GFAlert: UIViewController {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = alertTitle
-        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        titleLabel.font = .systemFont(ofSize: 20.0, weight: .semibold)
+        titleLabel.textAlignment = .center
         return titleLabel
     }()
     
@@ -36,6 +37,8 @@ class GFAlert: UIViewController {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.text = alertMessage
         messageLabel.font = .preferredFont(forTextStyle: .body)
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
         return messageLabel
     }()
     
@@ -70,11 +73,22 @@ class GFAlert: UIViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            containerView.heightAnchor.constraint(equalToConstant: 220.0),
+            containerView.heightAnchor.constraint(greaterThanOrEqualToConstant: 230.0),
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64.0),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64.0),
+            
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32.0),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.0),
+            
+            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32.0),
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.0),
         
+            button.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16.0),
+            button.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
+            button.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.0),
         ])
         
     }

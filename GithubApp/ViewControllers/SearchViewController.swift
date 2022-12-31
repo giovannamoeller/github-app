@@ -39,12 +39,21 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setLayout()
         setConstraints()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    @objc private func goToFollowersVC() {
+        guard isUsernameEntered else {
+            displayAlert(title: "Empty Username", message: "Please enter an username so we can search for someone.", buttonText: "Ok")
+            return
+        }
+        let username = textField.text ?? String()
+        let followersVC = FollowersViewController(username: username)
+        navigationController?.pushViewController(followersVC, animated: true)
     }
     
     private func setLayout() {
@@ -71,16 +80,6 @@ class SearchViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
             
         ])
-    }
-    
-    @objc private func goToFollowersVC() {
-        guard isUsernameEntered else {
-            displayAlert(title: "Empty Username", message: "Please enter an username", buttonText: "Ok")
-            return
-        }
-        let username = textField.text ?? String()
-        let followersVC = FollowersViewController(username: username)
-        navigationController?.pushViewController(followersVC, animated: true)
     }
 }
 
