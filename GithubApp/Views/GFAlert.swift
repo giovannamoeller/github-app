@@ -44,6 +44,7 @@ class GFAlert: UIViewController {
     
     private lazy var button: GFButton = {
         let button = GFButton(alertButtonText, .errorColor)
+        button.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         return button
     }()
     
@@ -61,6 +62,10 @@ class GFAlert: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func dismissAlert() {
+        dismiss(animated: true)
     }
     
     private func setLayout() {

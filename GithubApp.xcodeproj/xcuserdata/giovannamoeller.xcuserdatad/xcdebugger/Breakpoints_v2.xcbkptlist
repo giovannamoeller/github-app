@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F0C110ED-9C69-433C-A39F-A71C954B8BC1"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "117B8440-CA25-44FC-AA58-40B456D876FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/ViewControllers/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "textField"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 8b150f54149705b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.textField.getter : GithubApp.GFTextField"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 290ede30f44ee7b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.textField.setter : GithubApp.GFTextField"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a4aa0b36e608cd04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.textField.modify : GithubApp.GFTextField"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a2e3135e5f5d1cd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.textField.modify : GithubApp.GFTextField with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 73a67e0db29f3e30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; GithubApp.SearchViewController"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - e33a62b27810b837"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.SearchViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;GithubApp.SearchViewController&gt;"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a76b060c2a27475a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; GithubApp.GFTextField in GithubApp.SearchViewController.textField.getter : GithubApp.GFTextField"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
