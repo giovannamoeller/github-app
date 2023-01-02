@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "117B8440-CA25-44FC-AA58-40B456D876FD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubApp/ViewControllers/SearchViewController.swift"
@@ -16,15 +16,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "textField"
+            landmarkName = "tapGesture"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 8b150f54149705b9"
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - ca3e364d3c6dd8db"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GithubApp.SearchViewController.textField.getter : GithubApp.GFTextField"
+                  symbolName = "GithubApp.SearchViewController.tapGesture.getter : __C.UITapGestureRecognizer"
                   moduleName = "GithubApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
@@ -35,11 +35,11 @@
                   offsetFromSymbolStart = "160">
                </Location>
                <Location
-                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 290ede30f44ee7b5"
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - e83285ab69bcc0d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GithubApp.SearchViewController.textField.setter : GithubApp.GFTextField"
+                  symbolName = "GithubApp.SearchViewController.tapGesture.setter : __C.UITapGestureRecognizer"
                   moduleName = "GithubApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
@@ -50,11 +50,11 @@
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a4aa0b36e608cd04"
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - fa85d3bc0e049226"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GithubApp.SearchViewController.textField.modify : GithubApp.GFTextField"
+                  symbolName = "GithubApp.SearchViewController.tapGesture.modify : __C.UITapGestureRecognizer"
                   moduleName = "GithubApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
@@ -65,11 +65,11 @@
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a2e3135e5f5d1cd0"
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 620e2e47318328d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GithubApp.SearchViewController.textField.modify : GithubApp.GFTextField with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "GithubApp.SearchViewController.tapGesture.modify : __C.UITapGestureRecognizer with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "GithubApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
@@ -110,11 +110,11 @@
                   offsetFromSymbolStart = "120">
                </Location>
                <Location
-                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - a76b060c2a27475a"
+                  uuid = "117B8440-CA25-44FC-AA58-40B456D876FD - 1fbaad2c50bf9f40"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; GithubApp.GFTextField in GithubApp.SearchViewController.textField.getter : GithubApp.GFTextField"
+                  symbolName = "closure #1 () -&gt; __C.UITapGestureRecognizer in GithubApp.SearchViewController.tapGesture.getter : __C.UITapGestureRecognizer"
                   moduleName = "GithubApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/ViewControllers/SearchViewController.swift"
@@ -122,9 +122,57 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
                   endingLineNumber = "23"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCD3FFD2-2495-46B6-AA17-39FF690BE813"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/Views/GFAlert.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "setLayout()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "331B84D7-84B7-4544-A98D-0F4D626EA443"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/Views/GFAlert.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "dismissAlert(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69881CBB-31C2-4463-8FF4-16CE7B6B9540"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/Views/GFAlert.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "setLayout()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

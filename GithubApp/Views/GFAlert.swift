@@ -13,6 +13,18 @@ class GFAlert: UIViewController {
     var alertMessage: String
     var alertButtonText: String
     
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert))
+        return tap
+    }()
+    
+    private lazy var backgroundView: UIView = {
+        let bgView = UIView()
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        bgView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        return bgView
+    }()
+    
     private lazy var containerView: UIView = {
         let container = UIView()
         container.layer.cornerRadius = 16.0
@@ -69,7 +81,8 @@ class GFAlert: UIViewController {
     }
     
     private func setLayout() {
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.addSubview(backgroundView)
+        backgroundView.addGestureRecognizer(tapGesture)
         view.addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(messageLabel)
@@ -78,6 +91,11 @@ class GFAlert: UIViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             containerView.heightAnchor.constraint(greaterThanOrEqualToConstant: 230.0),
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64.0),
