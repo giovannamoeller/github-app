@@ -25,10 +25,14 @@ class FollowersViewController: UIViewController {
         setLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func setLayout() {
         view.backgroundColor = .white
         title = username
-        navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
