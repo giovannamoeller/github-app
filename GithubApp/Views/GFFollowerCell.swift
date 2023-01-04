@@ -11,10 +11,8 @@ class GFFollowerCell: UICollectionViewCell {
     
     static let identifier = "followerCell"
     
-    private lazy var avatarImageView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.backgroundColor = .red
+    private lazy var avatarImageView: GFAvatarImageView = {
+        let imgView = GFAvatarImageView()
         return imgView
     }()
     
@@ -23,5 +21,6 @@ class GFFollowerCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16)
+        return label
     }()
 }
