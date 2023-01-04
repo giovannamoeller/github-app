@@ -65,7 +65,8 @@ class FollowersViewController: UIViewController {
     }
     
     private func getFollowers() {
-        Network.shared.getFollowers(for: username) { result in
+        Network.shared.getFollowers(for: username) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let followers):
                 self.followers = followers
