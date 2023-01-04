@@ -32,7 +32,7 @@ class FollowersViewController: UIViewController {
         let width = view.bounds.width
         let padding: CGFloat = 12
         let minimiumItemSpacing: CGFloat = 10
-        let availableWidth = width - (padding * (numberOfColumns - 1)) - (minimiumItemSpacing * (numberOfColumns - 1))
+        let availableWidth = width - (padding * 2) - (minimiumItemSpacing * (numberOfColumns - 1))
         let itemWidth = availableWidth / numberOfColumns
         
         let flowLayout = UICollectionViewFlowLayout()
