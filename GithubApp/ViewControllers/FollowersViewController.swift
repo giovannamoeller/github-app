@@ -9,21 +9,38 @@ import UIKit
 
 class FollowersViewController: UIViewController {
     
-    var username: String
+    private let numberOfColumns: CGFloat = 3
     
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemPink
-        collectionView.register(GFFollowerCell.self, forCellWithReuseIdentifier: GFFollowerCell.identifier)
-        return collectionView
-    }()
+    var username: String
     
     var followers: [Follower] {
         didSet {
             updateUI()
         }
     }
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(GFFollowerCell.self, forCellWithReuseIdentifier: GFFollowerCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
+    }()
+    
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let width = view.bounds.width
+        let padding: CGFloat = 12
+        let minimiumItemSpacing: CGFloat = 10
+        let availableWidth = width - (padding * (numberOfColumns - 1)) - (minimiumItemSpacing * (numberOfColumns - 1))
+        let itemWidth = availableWidth / numberOfColumns
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+        
+        return flowLayout
+    }()
     
     init(username: String) {
         self.username = username
@@ -47,6 +64,21 @@ class FollowersViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    private func getFollowers() {
+        Network.shared.getFollowers(for: username) { result in
+            switch result {
+            case .success(let followers):
+                self.followers = followers
+            case .failure(let error):
+                self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                return
+            }
+        }
+    }
+    
     private func setLayout() {
         view.backgroundColor = .white
         title = username
@@ -63,23 +95,23 @@ class FollowersViewController: UIViewController {
         ])
     }
     
-    private func getFollowers() {
-        Network.shared.getFollowers(for: username) { result in
-            
-            switch result {
-            case .success(let followers):
-                print(followers)
-            case .failure(let error):
-                self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-                return
-            }
+    private func updateUI() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
+}
+
+extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return followers.count
+    }
     
-    private func updateUI() {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GFFollowerCell.identifier, for: indexPath) as? GFFollowerCell {
+            cell.setFollower(follower: followers[indexPath.row])
+            return cell
+        }
+        return UICollectionViewCell()
     }
 }

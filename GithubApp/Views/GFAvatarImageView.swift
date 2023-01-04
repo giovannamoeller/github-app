@@ -13,7 +13,7 @@ class GFAvatarImageView: UIImageView {
         super.init(frame: .zero)
         setDefaultImage()
         setLayout()
-        setConstraints()
+        //setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -23,6 +23,7 @@ class GFAvatarImageView: UIImageView {
     private func setDefaultImage() {
         guard let image = UIImage(named: "avatar-placeholder") else { return }
         self.image = image
+        self.contentMode = .scaleAspectFit
     }
     
     func downloadImage(from url: String) {
@@ -31,15 +32,8 @@ class GFAvatarImageView: UIImageView {
 
     private func setLayout() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .red
         layer.cornerRadius = 10.0
         clipsToBounds = true
-    }
-    
-    private func setConstraints() {
-        NSLayoutConstraint.activate([
-        
-        ])
     }
 
 }
