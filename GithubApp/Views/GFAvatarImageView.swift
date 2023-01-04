@@ -13,7 +13,6 @@ class GFAvatarImageView: UIImageView {
         super.init(frame: .zero)
         setDefaultImage()
         setLayout()
-        //setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -27,16 +26,12 @@ class GFAvatarImageView: UIImageView {
     }
     
     func downloadImage(from url: String) {
-        guard let url = URL(string: url) else { return }
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        Network.shared.downloadImage(from: url) { [weak self] image in
             guard let self = self else { return }
-            guard let data = data else { return }
-            guard let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
                 self.image = image
             }
         }
-        task.resume()
     }
 
     private func setLayout() {

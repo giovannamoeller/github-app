@@ -5,7 +5,7 @@
 //  Created by Giovanna Moeller on 02/01/23.
 //
 
-import Foundation
+import UIKit
 
 class Network {
     static let shared = Network()
@@ -47,6 +47,16 @@ class Network {
             
         })
         
+        task.resume()
+    }
+    
+    func downloadImage(from avatarUrl: String, _ completionHandler: @escaping (UIImage) -> Void) {
+        guard let url = URL(string: avatarUrl) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            guard let image = UIImage(data: data) else { return }
+            completionHandler(image)
+        }
         task.resume()
     }
 }
