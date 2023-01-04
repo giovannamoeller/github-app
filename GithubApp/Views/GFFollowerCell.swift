@@ -11,6 +11,16 @@ class GFFollowerCell: UICollectionViewCell {
     
     static let identifier = "followerCell"
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var avatarImageView: GFAvatarImageView = {
         let imgView = GFAvatarImageView()
         return imgView
@@ -23,4 +33,27 @@ class GFFollowerCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 16)
         return label
     }()
+    
+    func setFollower(follower: Follower) {
+        usernameLabel.text = follower.username
+    }
+    
+    private func setLayout() {
+        backgroundColor = .green
+        addSubview(avatarImageView)
+        addSubview(usernameLabel)
+    }
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
+            
+            usernameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
+            usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+        ])
+    }
 }
