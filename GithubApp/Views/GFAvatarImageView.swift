@@ -9,10 +9,9 @@ import UIKit
 
 class GFAvatarImageView: UIImageView {
     
-    init(_ url: String) {
+    init() {
         super.init(frame: .zero)
         setDefaultImage()
-        downloadImage(from: url)
         setLayout()
         setConstraints()
     }
@@ -26,7 +25,7 @@ class GFAvatarImageView: UIImageView {
         self.image = image
     }
     
-    private func downloadImage(from url: String) {
+    func downloadImage(from url: String) {
         
     }
 
@@ -34,7 +33,7 @@ class GFAvatarImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .red
         layer.cornerRadius = 10.0
-        
+        clipsToBounds = true
     }
     
     private func setConstraints() {
