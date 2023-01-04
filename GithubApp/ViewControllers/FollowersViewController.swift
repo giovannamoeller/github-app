@@ -10,9 +10,15 @@ import UIKit
 class FollowersViewController: UIViewController {
     
     var username: String
+    var followers: [Follower] {
+        didSet {
+            updateUI()
+        }
+    }
     
     init(username: String) {
         self.username = username
+        self.followers = []
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +28,7 @@ class FollowersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFollowers()
         setLayout()
     }
     
@@ -34,5 +41,24 @@ class FollowersViewController: UIViewController {
         view.backgroundColor = .white
         title = username
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func getFollowers() {
+        Network.shared.getFollowers(for: username) { followers, error in
+            
+            guard let followers = followers else {
+                self.displayAlert(title: "Request error", message: error!, buttonText: "Try again")
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                return
+            }
+
+            print(followers)
+        }
+    }
+    
+    private func updateUI() {
+        
     }
 }
