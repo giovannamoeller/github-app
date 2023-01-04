@@ -28,7 +28,8 @@ class GFAvatarImageView: UIImageView {
     
     func downloadImage(from url: String) {
         guard let url = URL(string: url) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
             guard let data = data else { return }
             guard let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
