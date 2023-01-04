@@ -14,35 +14,35 @@ class Network {
     
     private init() { }
     
-    func getFollowers(for user: String, page: Int = 1, completionHandler: @escaping ([Follower]?, ErrorMessage?) -> Void) {
+    func getFollowers(for user: String, page: Int = 1, completionHandler: @escaping (Result<[Follower], GFError>) -> Void) {
         
         guard let endPoint = URL(string: "\(baseUrl)/\(user)/followers?per_page=\(perPageFollowers)&page=\(page)") else {
-            completionHandler(nil, .invalidUsername)
+            completionHandler(.failure(.invalidUsername))
             return
         }
         
         let task = URLSession.shared.dataTask(with: endPoint, completionHandler: { (data, response, error) in
             if let _ = error {
-                completionHandler(nil, .unableToComplete)
+                completionHandler(.failure(.unableToComplete))
                 return
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completionHandler(nil, .invalidResponse)
+                completionHandler(.failure(.invalidResponse))
                 return
             }
             
             guard let data = data else {
-                completionHandler(nil, .invalidData)
+                completionHandler(.failure(.invalidData))
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
                 let followers = try decoder.decode([Follower].self, from: data)
-                completionHandler(followers, nil)
+                completionHandler(.success(followers))
             } catch {
-                completionHandler(nil, .invalidData)
+                completionHandler(.failure(.invalidData))
             }
             
         })

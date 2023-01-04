@@ -44,17 +44,18 @@ class FollowersViewController: UIViewController {
     }
     
     private func getFollowers() {
-        Network.shared.getFollowers(for: username) { followers, error in
+        Network.shared.getFollowers(for: username) { result in
             
-            guard let followers = followers else {
-                self.displayAlert(title: "Request error", message: error!.rawValue, buttonText: "Try again")
+            switch result {
+            case .success(let followers):
+                print(followers)
+            case .failure(let error):
+                self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }
                 return
             }
-
-            print(followers)
         }
     }
     
