@@ -36,6 +36,7 @@ class GFFollowerCell: UICollectionViewCell {
     
     func setFollower(follower: Follower) {
         usernameLabel.text = follower.username
+        avatarImageView.downloadImage(from: follower.avatarURL)
     }
     
     private func setLayout() {
