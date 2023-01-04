@@ -47,7 +47,7 @@ class FollowersViewController: UIViewController {
         Network.shared.getFollowers(for: username) { followers, error in
             
             guard let followers = followers else {
-                self.displayAlert(title: "Request error", message: error!, buttonText: "Try again")
+                self.displayAlert(title: "Request error", message: error!.rawValue, buttonText: "Try again")
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }

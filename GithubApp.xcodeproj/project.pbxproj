@@ -23,6 +23,7 @@
 		486C45E1295679AD002CD646 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C45E0295679AD002CD646 /* GFButton.swift */; };
 		486C45E4295682CC002CD646 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C45E3295682CC002CD646 /* Color+.swift */; };
 		48B2F69129648C6E00E203A1 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F69029648C6E00E203A1 /* Follower.swift */; };
+		48B2F694296510FE00E203A1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F693296510FE00E203A1 /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		486C45E0295679AD002CD646 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		486C45E3295682CC002CD646 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		48B2F69029648C6E00E203A1 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		48B2F693296510FE00E203A1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		4806E8A2295519BF00D40672 /* GithubApp */ = {
 			isa = PBXGroup;
 			children = (
+				48B2F692296510C900E203A1 /* Utils */,
 				48018689296388AB00D58251 /* Models */,
 				480186842963886900D58251 /* Services */,
 				48018679295FD43600D58251 /* ViewControllers */,
@@ -135,6 +138,14 @@
 				480186822960F3CA00D58251 /* UIViewController+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		48B2F692296510C900E203A1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				48B2F693296510FE00E203A1 /* ErrorMessage.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 				480186862963887500D58251 /* Network.swift in Sources */,
 				4806E8A8295519BF00D40672 /* SearchViewController.swift in Sources */,
 				486C45E1295679AD002CD646 /* GFButton.swift in Sources */,
+				48B2F694296510FE00E203A1 /* ErrorMessage.swift in Sources */,
 				4801867B295FD45E00D58251 /* FavoritesViewController.swift in Sources */,
 				4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */,
 				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
