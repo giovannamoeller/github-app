@@ -10,6 +10,7 @@ import UIKit
 class FollowersViewController: UIViewController {
     
     private let numberOfColumns: CGFloat = 3
+    private var currentPage: Int = 1
     
     var username: String
     
@@ -65,11 +66,11 @@ class FollowersViewController: UIViewController {
     }
     
     private func getFollowers() {
-        Network.shared.getFollowers(for: username) { [weak self] result in
+        Network.shared.getFollowers(for: username, page: currentPage) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let followers):
-                self.followers = followers
+                self.followers += followers
             case .failure(let error):
                 self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
                 DispatchQueue.main.async {
@@ -92,7 +93,7 @@ class FollowersViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
@@ -114,5 +115,16 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+
+        if offsetY + height > contentHeight {
+            currentPage += 1
+            getFollowers()
+        }
     }
 }
