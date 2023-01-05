@@ -130,6 +130,7 @@ class FollowersViewController: UIViewController {
 }
 
 extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchData.count
     }
@@ -153,6 +154,12 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
             getFollowers()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = searchData[indexPath.row]
+        print(follower)
+    }
+    
 }
 
 extension FollowersViewController: UISearchResultsUpdating {
