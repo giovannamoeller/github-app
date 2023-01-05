@@ -26,6 +26,7 @@
 		48B2F694296510FE00E203A1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F693296510FE00E203A1 /* ErrorMessage.swift */; };
 		48B2F6962965A87000E203A1 /* GFFollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F6952965A87000E203A1 /* GFFollowerCell.swift */; };
 		48B2F6982965AA4900E203A1 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */; };
+		48B4BD7329664219005A8724 /* GFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7229664219005A8724 /* GFLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		48B2F693296510FE00E203A1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		48B2F6952965A87000E203A1 /* GFFollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerCell.swift; sourceTree = "<group>"; };
 		48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		48B4BD7229664219005A8724 /* GFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				480186802960EFDB00D58251 /* GFAlert.swift */,
 				48B2F6952965A87000E203A1 /* GFFollowerCell.swift */,
 				48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */,
+				48B4BD7229664219005A8724 /* GFLoader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				486C45E1295679AD002CD646 /* GFButton.swift in Sources */,
 				48B2F694296510FE00E203A1 /* ErrorMessage.swift in Sources */,
 				4801867B295FD45E00D58251 /* FavoritesViewController.swift in Sources */,
+				48B4BD7329664219005A8724 /* GFLoader.swift in Sources */,
 				4806E8A4295519BF00D40672 /* AppDelegate.swift in Sources */,
 				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
 				4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */,

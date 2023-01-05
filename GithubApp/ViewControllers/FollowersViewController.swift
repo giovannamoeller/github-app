@@ -11,6 +11,7 @@ class FollowersViewController: UIViewController {
     
     private let numberOfColumns: CGFloat = 3
     private var currentPage: Int = 1
+    private var hasMoreFollowers: Bool = true
     
     var username: String
     
@@ -66,10 +67,13 @@ class FollowersViewController: UIViewController {
     }
     
     private func getFollowers() {
+        showLoadingView()
         Network.shared.getFollowers(for: username, page: currentPage) { [weak self] result in
             guard let self = self else { return }
+            self.stopLoadingView()
             switch result {
             case .success(let followers):
+                if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers += followers
             case .failure(let error):
                 self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
@@ -123,6 +127,7 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
         let height = scrollView.frame.size.height
 
         if offsetY + height > contentHeight {
+            guard hasMoreFollowers else { return }
             currentPage += 1
             getFollowers()
         }
