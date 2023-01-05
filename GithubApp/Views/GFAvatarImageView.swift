@@ -13,6 +13,7 @@ class GFAvatarImageView: UIImageView {
         super.init(frame: .zero)
         setDefaultImage()
         setLayout()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +39,10 @@ class GFAvatarImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 10.0
         clipsToBounds = true
+    }
+    
+    private func setConstraints() {
+        heightAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
 
 }
