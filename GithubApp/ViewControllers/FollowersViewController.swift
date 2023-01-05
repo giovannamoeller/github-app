@@ -15,7 +15,9 @@ class FollowersViewController: UIViewController {
     
     var username: String
     
-    var followers: [Follower] {
+    var followers: [Follower]
+    
+    var searchData: [Follower] {
         didSet {
             updateUI()
         }
@@ -47,6 +49,7 @@ class FollowersViewController: UIViewController {
     init(username: String) {
         self.username = username
         self.followers = []
+        self.searchData = []
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -56,6 +59,7 @@ class FollowersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchController()
         getFollowers()
         setLayout()
         setConstraints()
@@ -78,6 +82,7 @@ class FollowersViewController: UIViewController {
                 }
                 else if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers += followers
+                self.searchData = followers
             case .failure(let error):
                 self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
                 DispatchQueue.main.async {
@@ -93,7 +98,7 @@ class FollowersViewController: UIViewController {
         title = username
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(collectionView)
-    }
+     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
@@ -109,16 +114,25 @@ class FollowersViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for an username"
+        searchController.obscuresBackgroundDuringPresentation = true
+        navigationItem.searchController = searchController
+    }
 }
 
 extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return followers.count
+        return searchData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GFFollowerCell.identifier, for: indexPath) as? GFFollowerCell {
-            cell.setFollower(follower: followers[indexPath.row])
+            cell.setFollower(follower: searchData[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
@@ -134,5 +148,19 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
             currentPage += 1
             getFollowers()
         }
+    }
+}
+
+extension FollowersViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            searchData = followers
+            return
+        }
+        
+        searchData = followers.filter({ follower in
+            follower.username.lowercased().contains(filter.lowercased())
+        })
     }
 }
