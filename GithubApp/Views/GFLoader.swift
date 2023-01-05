@@ -8,9 +8,18 @@
 import UIKit
 
 class GFLoader: UIView {
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setLayout()
+        setConstraints()
+        activityIndicator.startAnimating()
     }
     
     required init?(coder: NSCoder) {
@@ -18,7 +27,18 @@ class GFLoader: UIView {
     }
     
     private func setLayout() {
-        backgroundColor = .init(red: 1, green: 1, blue: 1, alpha: 0.75)
+        addSubview(activityIndicator)
+        backgroundColor = .systemBackground
+        alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            alpha = 0.8
+        }
     }
     
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+    }
 }
