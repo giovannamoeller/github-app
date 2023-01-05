@@ -15,7 +15,11 @@ class FollowersViewController: UIViewController {
     
     var username: String
     
-    var followers: [Follower]
+    var followers: [Follower] {
+        didSet {
+            searchData = followers
+        }
+    }
     
     var searchData: [Follower] {
         didSet {
@@ -82,7 +86,6 @@ class FollowersViewController: UIViewController {
                 }
                 else if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers += followers
-                self.searchData = followers
             case .failure(let error):
                 self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
                 DispatchQueue.main.async {
@@ -120,7 +123,6 @@ class FollowersViewController: UIViewController {
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for an username"
-        searchController.obscuresBackgroundDuringPresentation = true
         navigationItem.searchController = searchController
     }
 }
