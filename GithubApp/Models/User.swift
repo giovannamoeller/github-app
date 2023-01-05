@@ -23,9 +23,13 @@ struct User: Codable {
     
     enum CodingKeys: String, CodingKey {
         case username = "login"
-        case numberOfFollowers = "followers"
+        case name = "name"
+        case bio = "bio"
+        case location = "location"
+        case company = "company"
         case publicRepos = "public_repos"
         case publicGists = "public_gists"
+        case numberOfFollowers = "followers"
         case avatarUrl = "avatar_url"
         case htmlUrl = "html_url"
         case numberOfFollowing = "following"
