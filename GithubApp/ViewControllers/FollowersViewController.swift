@@ -50,6 +50,16 @@ class FollowersViewController: UIViewController {
         return flowLayout
     }()
     
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for an username"
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.searchBarStyle = .prominent
+        return searchController
+    }()
+    
     init(username: String) {
         self.username = username
         self.followers = []
@@ -63,7 +73,6 @@ class FollowersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSearchController()
         getFollowers()
         setLayout()
         setConstraints()
@@ -101,14 +110,15 @@ class FollowersViewController: UIViewController {
         title = username
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(collectionView)
+        navigationItem.searchController = searchController
      }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -116,14 +126,6 @@ class FollowersViewController: UIViewController {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
-    }
-    
-    private func configureSearchController() {
-        let searchController = UISearchController()
-        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search for an username"
-        navigationItem.searchController = searchController
     }
 }
 
