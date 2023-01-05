@@ -70,10 +70,13 @@ class FollowersViewController: UIViewController {
         showLoadingView()
         Network.shared.getFollowers(for: username, page: currentPage) { [weak self] result in
             guard let self = self else { return }
-            self.stopLoadingView()
+            self.dismissLoadingView()
             switch result {
             case .success(let followers):
-                if followers.count < 100 { self.hasMoreFollowers = false }
+                if followers.isEmpty {
+                    self.showEmptyView(with: "This user doesn’t have any followers.")
+                }
+                else if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers += followers
             case .failure(let error):
                 self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
