@@ -31,7 +31,7 @@ class GFLoader: UIView {
         backgroundColor = .systemBackground
         alpha = 0
         UIView.animate(withDuration: 0.3) {
-            alpha = 0.8
+            self.alpha = 0.8
         }
     }
     
