@@ -17,6 +17,12 @@ class FollowersViewController: UIViewController {
     
     var followers: [Follower] {
         didSet {
+            searchData = followers
+        }
+    }
+    
+    var searchData: [Follower] {
+        didSet {
             updateUI()
         }
     }
@@ -44,9 +50,20 @@ class FollowersViewController: UIViewController {
         return flowLayout
     }()
     
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for an username"
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.searchBarStyle = .prominent
+        return searchController
+    }()
+    
     init(username: String) {
         self.username = username
         self.followers = []
+        self.searchData = []
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -93,14 +110,15 @@ class FollowersViewController: UIViewController {
         title = username
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(collectionView)
-    }
+        navigationItem.searchController = searchController
+     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -113,12 +131,12 @@ class FollowersViewController: UIViewController {
 
 extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return followers.count
+        return searchData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GFFollowerCell.identifier, for: indexPath) as? GFFollowerCell {
-            cell.setFollower(follower: followers[indexPath.row])
+            cell.setFollower(follower: searchData[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
@@ -134,5 +152,19 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
             currentPage += 1
             getFollowers()
         }
+    }
+}
+
+extension FollowersViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            searchData = followers
+            return
+        }
+        
+        searchData = followers.filter({ follower in
+            follower.username.lowercased().contains(filter.lowercased())
+        })
     }
 }
