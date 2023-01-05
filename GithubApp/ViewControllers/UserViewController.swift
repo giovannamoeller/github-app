@@ -8,7 +8,7 @@
 import UIKit
 
 class UserViewController: UIViewController {
-    
+        
     init(follower: Follower) {
         super.init(nibName: nil, bundle: nil)
         getUser(follower.username)
@@ -34,7 +34,22 @@ class UserViewController: UIViewController {
     }
     
     private func getUser(_ username: String) {
-        
+        Network.shared.getUser(for: username) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let user):
+                DispatchQueue.main.async {
+                    self.displayUserInfo(user)
+                }
+            case .failure(let error):
+                self.displayAlert(title: "Request error", message: error.rawValue, buttonText: "Try again")
+                return
+            }
+        }
+    }
+    
+    private func displayUserInfo(_ user: User) {
+        print(user)
     }
     
     @objc private func dismissModal() {
