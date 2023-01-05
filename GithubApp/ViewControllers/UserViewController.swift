@@ -25,6 +25,7 @@ class UserViewController: UIViewController {
     }
     
     private func setLayout() {
+        view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
     }
     
