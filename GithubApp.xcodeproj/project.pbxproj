@@ -28,6 +28,7 @@
 		48B2F6982965AA4900E203A1 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */; };
 		48B4BD7329664219005A8724 /* GFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7229664219005A8724 /* GFLoader.swift */; };
 		48B4BD7529665E0E005A8724 /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7429665E0E005A8724 /* GFEmptyView.swift */; };
+		48B4BD772967017D005A8724 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD762967017D005A8724 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		48B4BD7229664219005A8724 /* GFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFLoader.swift; sourceTree = "<group>"; };
 		48B4BD7429665E0E005A8724 /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
+		48B4BD762967017D005A8724 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4801867A295FD45E00D58251 /* FavoritesViewController.swift */,
 				4801867C295FD48D00D58251 /* TabBarViewController.swift */,
 				4801867E2960E96D00D58251 /* FollowersViewController.swift */,
+				48B4BD762967017D005A8724 /* UserViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48018688296388A700D58251 /* User.swift in Sources */,
+				48B4BD772967017D005A8724 /* UserViewController.swift in Sources */,
 				48B2F69129648C6E00E203A1 /* Follower.swift in Sources */,
 				4801867F2960E96D00D58251 /* FollowersViewController.swift in Sources */,
 				4801867D295FD48D00D58251 /* TabBarViewController.swift in Sources */,

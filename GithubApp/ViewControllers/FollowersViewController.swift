@@ -157,7 +157,9 @@ extension FollowersViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let follower = searchData[indexPath.row]
-        print(follower)
+        let modalVC = UserViewController(follower: follower)
+        let navController = UINavigationController(rootViewController: modalVC)
+        present(navController, animated: true)
     }
     
 }
