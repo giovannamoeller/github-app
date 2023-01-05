@@ -50,7 +50,7 @@ class GFEmptyView: UIView {
             messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 100),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 80),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 180),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
