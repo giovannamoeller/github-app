@@ -51,6 +51,42 @@ class Network {
         task.resume()
     }
     
+    func getUser(for user: String, completionHandler: @escaping (Result<User, GFError>) -> Void) {
+        
+        guard let endPoint = URL(string: "\(baseUrl)/\(user)") else {
+            completionHandler(.failure(.invalidUsername))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: endPoint, completionHandler: { (data, response, error) in
+            if let _ = error {
+                completionHandler(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completionHandler(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let user = try decoder.decode(User.self, from: data)
+                completionHandler(.success(user))
+            } catch {
+                completionHandler(.failure(.invalidData))
+            }
+            
+        })
+        
+        task.resume()
+    }
+    
     func downloadImage(from avatarUrl: String, _ completionHandler: @escaping (UIImage) -> Void) {
         if let image = cache.object(forKey: NSString(string: avatarUrl)) {
             completionHandler(image)
