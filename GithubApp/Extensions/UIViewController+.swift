@@ -8,6 +8,8 @@
 import UIKit
 
 fileprivate var loadingView: GFLoader!
+fileprivate var emptyView: GFEmptyView!
+
 
 extension UIViewController {
         
@@ -25,10 +27,19 @@ extension UIViewController {
         view.addSubview(loadingView)
     }
     
-    func stopLoadingView() {
+    func dismissLoadingView() {
         DispatchQueue.main.async {
             loadingView.removeFromSuperview()
             loadingView = nil
         }
     }
+    
+    func showEmptyView(with message: String) {
+        DispatchQueue.main.async {
+            emptyView = GFEmptyView(frame: self.view.bounds)
+            emptyView.setMessage(message)
+            self.view.addSubview(emptyView)
+        }
+    }
+    
 }

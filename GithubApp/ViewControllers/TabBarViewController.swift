@@ -27,6 +27,7 @@ class TabBarViewController: UITabBarController {
     private func setUpTabBarAndNavigationAppearance() {
         UITabBar.appearance().tintColor = .mainColor
         UINavigationBar.appearance().tintColor = .mainColor
+        UITabBar.appearance().backgroundColor = .systemBackground
     }
     
     private func setUpView(_ viewController: UIViewController, _ title: String, _ tabBarSystemItem: UITabBarItem.SystemItem) -> UINavigationController {
