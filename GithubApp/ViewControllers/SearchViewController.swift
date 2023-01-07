@@ -57,7 +57,7 @@ class SearchViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addGestureRecognizer(tapGesture)
         view.addSubview(logoImageView)
         view.addSubview(textField)
