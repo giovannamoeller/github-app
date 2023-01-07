@@ -33,6 +33,7 @@
 		48B4BD82296920AD005A8724 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD81296920AD005A8724 /* GFTitleLabel.swift */; };
 		48B4BD84296920E3005A8724 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD83296920E3005A8724 /* GFBodyLabel.swift */; };
 		48B4BD862969221E005A8724 /* GFUserInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD852969221E005A8724 /* GFUserInfoContainerView.swift */; };
+		48B4BD8829692419005A8724 /* GFUserInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD8729692419005A8724 /* GFUserInfoItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		48B4BD81296920AD005A8724 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		48B4BD83296920E3005A8724 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		48B4BD852969221E005A8724 /* GFUserInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GFUserInfoContainerView.swift; path = GithubApp/Views/GFUserInfoContainerView.swift; sourceTree = SOURCE_ROOT; };
+		48B4BD8729692419005A8724 /* GFUserInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				48B2F6952965A87000E203A1 /* GFFollowerCell.swift */,
 				48B4BD7A29674212005A8724 /* GFUserInfoHeaderView.swift */,
 				48B4BD852969221E005A8724 /* GFUserInfoContainerView.swift */,
+				48B4BD8729692419005A8724 /* GFUserInfoItemView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				4806E8B929562AD900D40672 /* GFTextField.swift in Sources */,
 				4806E8A6295519BF00D40672 /* SceneDelegate.swift in Sources */,
 				480186832960F3CA00D58251 /* UIViewController+.swift in Sources */,
+				48B4BD8829692419005A8724 /* GFUserInfoItemView.swift in Sources */,
 				486C45E4295682CC002CD646 /* Color+.swift in Sources */,
 				48B4BD84296920E3005A8724 /* GFBodyLabel.swift in Sources */,
 				480186812960EFDB00D58251 /* GFAlert.swift in Sources */,

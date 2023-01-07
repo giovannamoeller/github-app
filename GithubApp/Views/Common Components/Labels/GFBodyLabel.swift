@@ -9,20 +9,17 @@ import UIKit
 
 class GFBodyLabel: UILabel {
 
-    override init(frame: CGRect = .zero) {
+    init(frame: CGRect = .zero, fontSize: CGFloat = 16, alignment: NSTextAlignment = .center) {
         super.init(frame: frame)
-        setLayout()
+        translatesAutoresizingMaskIntoConstraints = false
+        textColor = .label
+        numberOfLines = 0
+        textAlignment = alignment
+        font = .systemFont(ofSize: fontSize, weight: .regular)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setLayout() {
-        translatesAutoresizingMaskIntoConstraints = false
-        textColor = .darkGray
-        numberOfLines = 0
-        font = .systemFont(ofSize: 16, weight: .regular)
     }
     
     func changeWeight(to weight: UIFont.Weight) {

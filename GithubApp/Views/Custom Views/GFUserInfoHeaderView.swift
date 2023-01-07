@@ -34,9 +34,9 @@ class GFUserInfoHeaderView: UIView {
     }()
     
     private var usernameTitleLabel = GFTitleLabel()
-    private var nameLabel = GFBodyLabel()
-    private var locationLabel = GFBodyLabel()
-    private var bioLabel = GFBodyLabel()
+    private var nameLabel = GFBodyLabel(alignment: .left)
+    private var locationLabel = GFBodyLabel(alignment: .left)
+    private var bioLabel = GFBodyLabel(alignment: .left)
     private var avatarImageView = GFAvatarImageView()
     
     override init(frame: CGRect) {

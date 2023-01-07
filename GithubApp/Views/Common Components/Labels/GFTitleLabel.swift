@@ -9,20 +9,16 @@ import UIKit
 
 class GFTitleLabel: UILabel {
 
-    override init(frame: CGRect = .zero) {
+    init(frame: CGRect = .zero, fontSize: CGFloat = 16) {
         super.init(frame: frame)
-        setLayout()
+        font = .systemFont(ofSize: fontSize, weight: .bold)
+        translatesAutoresizingMaskIntoConstraints = false
+        textColor = .label
+        numberOfLines = 0
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setLayout() {
-        translatesAutoresizingMaskIntoConstraints = false
-        textColor = .darkGray
-        numberOfLines = 0
-        font = .systemFont(ofSize: 26, weight: .bold)
     }
 
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class GFUserInfoContainerView: UIView {
 
     private lazy var mainStackView: UIStackView = {
@@ -14,7 +15,8 @@ class GFUserInfoContainerView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.alignment = .center
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
         return stackView
     }()
         
@@ -31,7 +33,7 @@ class GFUserInfoContainerView: UIView {
     private func setLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(mainStackView)
-        backgroundColor = .lightGray.withAlphaComponent(0.3)
+        backgroundColor = .lightGray.withAlphaComponent(0.2)
         layer.cornerRadius = 16.0
     }
     
@@ -41,11 +43,17 @@ class GFUserInfoContainerView: UIView {
     
     func addButton(button: UIButton) {
         addSubview(button)
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 78),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+        ])
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])

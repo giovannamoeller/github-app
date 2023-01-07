@@ -9,13 +9,17 @@ import UIKit
 
 class UserViewController: UIViewController {
     
-    private lazy var userInfoHeaderView: GFUserInfoHeaderView = {
-        return GFUserInfoHeaderView()
-    }()
+    private var userInfoHeaderView = GFUserInfoHeaderView()
     
-    private lazy var userInfoContainerView: GFUserInfoContainerView = {
-        return GFUserInfoContainerView()
-    }()
+    private var userReposAndGistsContainerView = GFUserInfoContainerView()
+    private var reposContainer = GFUserInfoItemView()
+    private var gistsContainer = GFUserInfoItemView()
+    private var githubProfileButton = GFButton("Github Profile", .systemPurple)
+    
+    private var userFollowingAndFollowersContainerView = GFUserInfoContainerView()
+    private var followingContainer = GFUserInfoItemView()
+    private var followersContainer = GFUserInfoItemView()
+    private var getFollowersButton = GFButton("Get Followers", .mainColor)
     
     init(follower: Follower) {
         super.init(nibName: nil, bundle: nil)
@@ -34,8 +38,17 @@ class UserViewController: UIViewController {
     
     private func setLayout() {
         view.addSubview(userInfoHeaderView)
-        view.addSubview(userInfoContainerView)
-        userInfoHeaderView.backgroundColor = .systemPink
+        
+        view.addSubview(userReposAndGistsContainerView)
+        userReposAndGistsContainerView.addInfoView(view: reposContainer)
+        userReposAndGistsContainerView.addInfoView(view: gistsContainer)
+        userReposAndGistsContainerView.addButton(button: githubProfileButton)
+        
+        view.addSubview(userFollowingAndFollowersContainerView)
+        userFollowingAndFollowersContainerView.addInfoView(view: followingContainer)
+        userFollowingAndFollowersContainerView.addInfoView(view: followersContainer)
+        userFollowingAndFollowersContainerView.addButton(button: getFollowersButton)
+        
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
     }
@@ -46,13 +59,13 @@ class UserViewController: UIViewController {
             userInfoHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             userInfoHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            userInfoContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
-            userInfoContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            userInfoContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            userInfoContainerView.heightAnchor.constraint(equalToConstant: 240)
-            //userReposAndGistsContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
-            //userReposAndGistsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            //userReposAndGistsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            userReposAndGistsContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
+            userReposAndGistsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            userReposAndGistsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            userFollowingAndFollowersContainerView.topAnchor.constraint(equalTo: userReposAndGistsContainerView.bottomAnchor, constant: 32),
+            userFollowingAndFollowersContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            userFollowingAndFollowersContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
     }
     
@@ -75,7 +88,12 @@ class UserViewController: UIViewController {
     
     private func displayUserInfo(_ user: User) {
         userInfoHeaderView.setUserInformation(user)
-        //userReposAndGistsContainerView.setUserInformation(user)
+        
+        reposContainer.set(itemInfoType: .repos, with: user.publicRepos)
+        gistsContainer.set(itemInfoType: .gists, with: user.publicGists)
+        
+        followersContainer.set(itemInfoType: .followers, with: user.numberOfFollowers)
+        followingContainer.set(itemInfoType: .following, with: user.numberOfFollowing)
     }
     
     @objc private func dismissModal() {
