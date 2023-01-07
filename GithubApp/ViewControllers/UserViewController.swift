@@ -9,22 +9,8 @@ import UIKit
 
 class UserViewController: UIViewController {
     
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.alignment = .center
-        stackView.backgroundColor = .red
-        [userInfoHeaderView].forEach { view in
-            stackView.addSubview(view)
-        }
-        return stackView
-    }()
-    
     private lazy var userInfoHeaderView: GFUserInfoHeaderView = {
-        let view = GFUserInfoHeaderView()
-        return view
+        return GFUserInfoHeaderView()
     }()
     
     init(follower: Follower) {
@@ -43,18 +29,17 @@ class UserViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.addSubview(mainStackView)
+        view.addSubview(userInfoHeaderView)
+        userInfoHeaderView.backgroundColor = .systemPink
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
+            userInfoHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            userInfoHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            userInfoHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             //userReposAndGistsContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
             //userReposAndGistsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             //userReposAndGistsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

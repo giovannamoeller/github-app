@@ -303,5 +303,99 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D92ABCF-9ABF-4926-B048-78B1CFD1ACC6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/Views/Custom Views/GFUserInfoHeaderView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "setLayout()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F211846D-771E-46F5-83D9-4DA94914E903"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubApp/Views/Custom Views/GFUserInformationContainerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "createContainerView(titlee:text:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F211846D-771E-46F5-83D9-4DA94914E903 - 39f60bd44d65ae4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.GFUserInformationContainerView.firstContainerView.getter : __C.UIStackView"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/Views/Custom%20Views/GFUserInformationContainerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "F211846D-771E-46F5-83D9-4DA94914E903 - ac9e80c9fdc25273"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.GFUserInformationContainerView.firstContainerView.setter : __C.UIStackView"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/Views/Custom%20Views/GFUserInformationContainerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "F211846D-771E-46F5-83D9-4DA94914E903 - aa35f1fdf0099b4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.GFUserInformationContainerView.firstContainerView.modify : __C.UIStackView"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/Views/Custom%20Views/GFUserInformationContainerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F211846D-771E-46F5-83D9-4DA94914E903 - 57f0125043430aed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubApp.GFUserInformationContainerView.firstContainerView.modify : __C.UIStackView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "GithubApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/giovannamoeller/Documents/GithubApp/GithubApp/Views/Custom%20Views/GFUserInformationContainerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

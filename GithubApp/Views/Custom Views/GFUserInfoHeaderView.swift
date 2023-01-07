@@ -82,6 +82,7 @@ class GFUserInfoHeaderView: UIView {
     }
     
     private func setLayout() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(mainStackView)
         addSubview(bioLabel)
     }
@@ -105,6 +106,7 @@ class GFUserInfoHeaderView: UIView {
             bioLabel.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 32),
             bioLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             bioLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            bioLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 

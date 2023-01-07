@@ -29,6 +29,7 @@
 		48B4BD7329664219005A8724 /* GFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7229664219005A8724 /* GFLoader.swift */; };
 		48B4BD7529665E0E005A8724 /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7429665E0E005A8724 /* GFEmptyView.swift */; };
 		48B4BD772967017D005A8724 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD762967017D005A8724 /* UserViewController.swift */; };
+		48B4BD7B29674212005A8724 /* GFUserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4BD7A29674212005A8724 /* GFUserInfoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		48B4BD7229664219005A8724 /* GFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFLoader.swift; sourceTree = "<group>"; };
 		48B4BD7429665E0E005A8724 /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
 		48B4BD762967017D005A8724 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		48B4BD7A29674212005A8724 /* GFUserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,13 +137,8 @@
 		4806E8B729562AB800D40672 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4806E8B829562AD900D40672 /* GFTextField.swift */,
-				486C45E0295679AD002CD646 /* GFButton.swift */,
-				480186802960EFDB00D58251 /* GFAlert.swift */,
-				48B2F6952965A87000E203A1 /* GFFollowerCell.swift */,
-				48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */,
-				48B4BD7229664219005A8724 /* GFLoader.swift */,
-				48B4BD7429665E0E005A8724 /* GFEmptyView.swift */,
+				48B4BD79296741E6005A8724 /* Custom Views */,
+				48B4BD78296741DF005A8724 /* Common Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +158,28 @@
 				48B2F693296510FE00E203A1 /* ErrorMessage.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		48B4BD78296741DF005A8724 /* Common Components */ = {
+			isa = PBXGroup;
+			children = (
+				4806E8B829562AD900D40672 /* GFTextField.swift */,
+				486C45E0295679AD002CD646 /* GFButton.swift */,
+				480186802960EFDB00D58251 /* GFAlert.swift */,
+				48B4BD7229664219005A8724 /* GFLoader.swift */,
+			);
+			path = "Common Components";
+			sourceTree = "<group>";
+		};
+		48B4BD79296741E6005A8724 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				48B4BD7429665E0E005A8724 /* GFEmptyView.swift */,
+				48B2F6972965AA4900E203A1 /* GFAvatarImageView.swift */,
+				48B2F6952965A87000E203A1 /* GFFollowerCell.swift */,
+				48B4BD7A29674212005A8724 /* GFUserInfoHeaderView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B4BD7B29674212005A8724 /* GFUserInfoHeaderView.swift in Sources */,
 				48018688296388A700D58251 /* User.swift in Sources */,
 				48B4BD772967017D005A8724 /* UserViewController.swift in Sources */,
 				48B2F69129648C6E00E203A1 /* Follower.swift in Sources */,
