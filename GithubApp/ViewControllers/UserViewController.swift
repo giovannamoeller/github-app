@@ -13,6 +13,10 @@ class UserViewController: UIViewController {
         return GFUserInfoHeaderView()
     }()
     
+    private lazy var userInfoContainerView: GFUserInfoContainerView = {
+        return GFUserInfoContainerView()
+    }()
+    
     init(follower: Follower) {
         super.init(nibName: nil, bundle: nil)
         getUser(follower.username)
@@ -30,6 +34,7 @@ class UserViewController: UIViewController {
     
     private func setLayout() {
         view.addSubview(userInfoHeaderView)
+        view.addSubview(userInfoContainerView)
         userInfoHeaderView.backgroundColor = .systemPink
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
@@ -40,6 +45,11 @@ class UserViewController: UIViewController {
             userInfoHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             userInfoHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             userInfoHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            userInfoContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
+            userInfoContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            userInfoContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            userInfoContainerView.heightAnchor.constraint(equalToConstant: 240)
             //userReposAndGistsContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
             //userReposAndGistsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             //userReposAndGistsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
