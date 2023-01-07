@@ -33,43 +33,11 @@ class GFUserInfoHeaderView: UIView {
         return stackView
     }()
     
-    private lazy var usernameTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        return label
-    }()
-    
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var locationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var bioLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var avatarImageView: GFAvatarImageView = {
-        let imgView = GFAvatarImageView()
-        return imgView
-    }()
+    private var usernameTitleLabel = GFTitleLabel()
+    private var nameLabel = GFBodyLabel()
+    private var locationLabel = GFBodyLabel()
+    private var bioLabel = GFBodyLabel()
+    private var avatarImageView = GFAvatarImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
