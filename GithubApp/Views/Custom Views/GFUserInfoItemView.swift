@@ -76,6 +76,8 @@ class GFUserInfoItemView: UIView {
             iconImageView.topAnchor.constraint(equalTo: topAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             iconImageView.heightAnchor.constraint(equalToConstant: 24),
+            iconImageView.widthAnchor.constraint(equalToConstant: 24),
+
             
             titleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 12),
