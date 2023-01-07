@@ -9,12 +9,103 @@ import UIKit
 
 class GFUserInfoHeaderView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    private lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 16
+        stackView.alignment = .center
+        [avatarImageView, textStackView].forEach { view in
+            stackView.addArrangedSubview(view)
+        }
+        return stackView
+    }()
+    
+    private lazy var textStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 12
+        [usernameTitleLabel, nameLabel, locationLabel].forEach { view in
+            stackView.addArrangedSubview(view)
+        }
+        return stackView
+    }()
+    
+    private lazy var usernameTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 22, weight: .bold)
+        return label
+    }()
+    
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var bioLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var avatarImageView: GFAvatarImageView = {
+        let imgView = GFAvatarImageView()
+        return imgView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+        setConstraints()
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setLayout() {
+        addSubview(mainStackView)
+        addSubview(bioLabel)
+    }
+    
+    func setUserInformation(_ user: User) {
+        avatarImageView.downloadImage(from: user.avatarUrl)
+        usernameTitleLabel.text = user.username
+        nameLabel.text = user.name ?? "Name not informed"
+        locationLabel.text = user.location ?? "Location not informed"
+        bioLabel.text = user.bio ?? "Bio not informed"
+    }
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            avatarImageView.heightAnchor.constraint(equalToConstant: 92),
+            
+            bioLabel.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 32),
+            bioLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            bioLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+        ])
+    }
 
 }

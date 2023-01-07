@@ -12,65 +12,21 @@ class UserViewController: UIViewController {
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 16
-        stackView.alignment = .center
-        [avatarImageView, textStackView].forEach { view in
-            stackView.addArrangedSubview(view)
-        }
-        return stackView
-    }()
-    
-    private lazy var textStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.spacing = 12
-        [usernameTitleLabel, nameLabel, locationLabel].forEach { view in
-            stackView.addArrangedSubview(view)
+        stackView.spacing = 8
+        stackView.alignment = .center
+        stackView.backgroundColor = .red
+        [userInfoHeaderView].forEach { view in
+            stackView.addSubview(view)
         }
         return stackView
     }()
     
-    private lazy var usernameTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        return label
+    private lazy var userInfoHeaderView: GFUserInfoHeaderView = {
+        let view = GFUserInfoHeaderView()
+        return view
     }()
     
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var locationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var bioLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var avatarImageView: GFAvatarImageView = {
-        let imgView = GFAvatarImageView()
-        return imgView
-    }()
-        
     init(follower: Follower) {
         super.init(nibName: nil, bundle: nil)
         getUser(follower.username)
@@ -88,7 +44,6 @@ class UserViewController: UIViewController {
     
     private func setLayout() {
         view.addSubview(mainStackView)
-        view.addSubview(bioLabel)
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
     }
@@ -96,14 +51,13 @@ class UserViewController: UIViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             
-            avatarImageView.heightAnchor.constraint(equalToConstant: 92),
-            
-            bioLabel.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 32),
-            bioLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            //userReposAndGistsContainerView.topAnchor.constraint(equalTo: userInfoHeaderView.bottomAnchor, constant: 32),
+            //userReposAndGistsContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            //userReposAndGistsContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     
@@ -125,12 +79,8 @@ class UserViewController: UIViewController {
     }
     
     private func displayUserInfo(_ user: User) {
-        print(user)
-        avatarImageView.downloadImage(from: user.avatarUrl)
-        usernameTitleLabel.text = user.username
-        nameLabel.text = user.name ?? "Name not informed"
-        locationLabel.text = user.location ?? "Location not informed"
-        bioLabel.text = user.bio ?? "Bio not informed"
+        userInfoHeaderView.setUserInformation(user)
+        //userReposAndGistsContainerView.setUserInformation(user)
     }
     
     @objc private func dismissModal() {
