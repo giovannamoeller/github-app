@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol GFUserInfoContainerProtocol {
+    func didTapGithubProfile()
+    func didTapGetFollowers()
+}
 
 class GFUserInfoContainerView: UIView {
+    
+    var delegate: GFUserInfoContainerProtocol?
+    private var infoType: ItemType
 
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -20,7 +27,8 @@ class GFUserInfoContainerView: UIView {
         return stackView
     }()
         
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero, infoType: ItemType) {
+        self.infoType = infoType
         super.init(frame: frame)
         setLayout()
         setConstraints()
@@ -43,12 +51,22 @@ class GFUserInfoContainerView: UIView {
     
     func addButton(button: UIButton) {
         addSubview(button)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 78),
             button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
+    }
+    
+    @objc func buttonTapped() {
+        switch infoType {
+        case .reposAndGists:
+            delegate?.didTapGithubProfile()
+        case .followingAndFollowers:
+            delegate?.didTapGetFollowers()
+        }
     }
     
     private func setConstraints() {
@@ -60,3 +78,4 @@ class GFUserInfoContainerView: UIView {
     }
 
 }
+

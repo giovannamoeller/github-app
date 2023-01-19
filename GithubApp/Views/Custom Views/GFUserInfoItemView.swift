@@ -14,6 +14,10 @@ enum ItemInfoType {
     case followers
 }
 
+enum ItemType {
+    case reposAndGists
+    case followingAndFollowers
+}
 
 class GFUserInfoItemView: UIView {
 

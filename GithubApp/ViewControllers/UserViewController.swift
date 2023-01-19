@@ -11,15 +11,16 @@ class UserViewController: UIViewController {
     
     private var userInfoHeaderView = GFUserInfoHeaderView()
     
-    private var userReposAndGistsContainerView = GFUserInfoContainerView()
+    private var userReposAndGistsContainerView = GFUserInfoContainerView(infoType: .reposAndGists)
     private var reposContainer = GFUserInfoItemView()
     private var gistsContainer = GFUserInfoItemView()
     private var githubProfileButton = GFButton("Github Profile", .systemPurple)
     
-    private var userFollowingAndFollowersContainerView = GFUserInfoContainerView()
+    private var userFollowingAndFollowersContainerView = GFUserInfoContainerView(infoType: .followingAndFollowers)
     private var followingContainer = GFUserInfoItemView()
     private var followersContainer = GFUserInfoItemView()
     private var getFollowersButton = GFButton("Get Followers", .mainColor)
+    
     
     init(follower: Follower) {
         super.init(nibName: nil, bundle: nil)
@@ -43,11 +44,13 @@ class UserViewController: UIViewController {
         userReposAndGistsContainerView.addInfoView(view: reposContainer)
         userReposAndGistsContainerView.addInfoView(view: gistsContainer)
         userReposAndGistsContainerView.addButton(button: githubProfileButton)
+        userReposAndGistsContainerView.delegate = self
         
         view.addSubview(userFollowingAndFollowersContainerView)
         userFollowingAndFollowersContainerView.addInfoView(view: followingContainer)
         userFollowingAndFollowersContainerView.addInfoView(view: followersContainer)
         userFollowingAndFollowersContainerView.addButton(button: getFollowersButton)
+        userFollowingAndFollowersContainerView.delegate = self
         
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissModal))
@@ -98,5 +101,15 @@ class UserViewController: UIViewController {
     
     @objc private func dismissModal() {
         dismiss(animated: true)
+    }
+}
+
+extension UserViewController: GFUserInfoContainerProtocol {
+    func didTapGithubProfile() {
+        print("github")
+    }
+    
+    func didTapGetFollowers() {
+        print("followers")
     }
 }
